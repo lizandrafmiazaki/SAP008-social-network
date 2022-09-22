@@ -1,0 +1,37 @@
+/* ZERANDO AS CONFIGURAÇÕES PADRÕES: */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* ===> MODELO FIRST MOBILE <=== */
+/* FORMULÁRIO DE LOGIN */
+section {
+    border: solid #000;
+    padding: 1rem;
+    margin: 2rem;
+    text-align: center;
+}
+
+/* E-MAIL E SENHA */
+textarea {
+    padding: 0.5rem;
+    height: 1rem;
+    width: 16rem;
+    text-align: center;
+    margin: 0.1rem;
+}
+
+/* BOTÕES */
+.btn {
+    margin: 0.1rem;
+}
+
+/* DIVISÓRIAS */
+.lines {
+    padding: 0.5rem 0rem;
+    margin-bottom: 1rem;
+    border-bottom: solid #000;
+    border-width: thin;
+}
+
