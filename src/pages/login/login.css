@@ -2,6 +2,7 @@
 body {
     margin: 0;
     padding: 0;
+    background: pink;
 }
 
 /* ===> MODELO FIRST MOBILE <=== */
@@ -14,7 +15,7 @@ section {
 }
 
 /* E-MAIL E SENHA */
-textarea {
+input {
     padding: 0.5rem;
     height: 1rem;
     width: 16rem;
