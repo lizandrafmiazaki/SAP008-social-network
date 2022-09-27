@@ -6,8 +6,8 @@ export default () => {
     <h1>Bem-vinda, ao Miacolhe!</h1>
     <section>
         <form>
-          <textarea name="" id="" placeholder="Insira seu e-mail"></textarea>
-          <textarea name="" id="" placeholder="Insira sua senha"></textarea>
+          <input name="" id="" placeholder="Insira seu e-mail"></input>
+          <input name="" id="" placeholder="Insira sua senha"></input>
           <button class="btn" type="submit">Entrar</button>
         </form>
         <div class="lines"></div>
