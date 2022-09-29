@@ -3,6 +3,7 @@ body {
     margin: 0;
     padding: 0;
     background: pink;
+    text-align: center;
 }
 
 /* ===> MODELO FIRST MOBILE <=== */
@@ -36,3 +37,13 @@ input {
     border-width: thin;
 }
 
+/* LOGO */
+.logo {
+    width: 6rem;
+}
+
+/* TÍTULO */
+h1 {
+    font-family: 'Emilys Candy', cursive;
+
+}
