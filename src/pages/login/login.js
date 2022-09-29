@@ -8,8 +8,8 @@ export default () => {
           <form>
             <input name="" id="" placeholder="Insira seu e-mail"></input>
             <input name="" id="" placeholder="Insira sua senha"></input>
-            <button class="btn" type="submit">Entrar</button>
           </form>
+          <a href= "/#homepage"><button class="btn">Entrar</button></a>
           <div class="lines"></div>
           <button class="btn">Login com Google</button>
           <div class="lines"></div>

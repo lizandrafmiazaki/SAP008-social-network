@@ -25,12 +25,12 @@ export default () => {
                     <label for="insert-confirm">Senha</label>
                     <input class="input-confirmpassword" id="insert-confirm" placeholder="Confirme sua senha" />
                 </div>
+            </form>
                 <div class="btn-signup">
-                    <button type="submit" class="btn-signup">Cadastrar</button>
+                <a href= "/#homepage"><button class="btn-signup">Cadastrar</button></a>
                     <button class="btn-clear">Limpar todos os campos</button>
                     <a href= "/#"><button class="btn-initial">Início</button></a>
                 </div>
-            </form>
         </section>`;
   container.innerHTML = template;
   return container;
