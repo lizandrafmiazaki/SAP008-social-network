@@ -11,7 +11,7 @@ export default () => {
             </li>
             <!-- adotar -> adopt -->
             <li>
-              <a href="/#adopt">Quero adotar</a>
+              <a href="/#homepage">Quero adotar</a>
             </li>
             <!-- informar -> inform -->
             <li>
@@ -24,7 +24,17 @@ export default () => {
           </ul>
         </nav>
       </header>
-        
+      
+      <body>
+        <figure class="">
+          <img class="user" id="user" src="./img/user.png" alt="imagem do usuário">
+        </figure>
+        <p>@username</p>
+        <figure class="">
+          <img class="img-content" id="" src="./img/caixa.png" alt="imagem de conteúdo">
+        </figure>
+        <p>like ❤</p>
+      </body>
       
       <footer>
         <nav>
@@ -33,11 +43,11 @@ export default () => {
               <a href="/#devs">Devs</a>
             </li>
             <li>
-              <a href="/#home">Início</a>
+              <a href="/#homepage">Início</a>
             </li>
             <button>Topo</button>
             <li>
-              <a href="/#exit">Sair</a>
+              <a href="/#">Sair</a>
             </li>
           </ul>
         </nav>
