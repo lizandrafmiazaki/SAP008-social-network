@@ -3,8 +3,9 @@ export default () => {
 
     const template = 
     `
-    <h1>Bem-vinda, ao Miacolhe!</h1>
-    <section>
+    <section class="container-login">
+    <img class= "logo" id= "logo" src="./img/logo.png" alt="logo"> 
+    <h1>Bem-vinde, ao Miacolhe!</h1>
         <form>
           <input name="" id="" placeholder="Insira seu e-mail"></input>
           <input name="" id="" placeholder="Insira sua senha"></input>
