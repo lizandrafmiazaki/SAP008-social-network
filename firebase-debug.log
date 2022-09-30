@@ -1,0 +1,30 @@
+[debug] [2022-09-30T17:44:16.044Z] ----------------------------------------------------------------------
+[debug] [2022-09-30T17:44:16.047Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Amanda Polari\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2022-09-30T17:44:16.050Z] CLI Version:   11.12.0
+[debug] [2022-09-30T17:44:16.050Z] Platform:      win32
+[debug] [2022-09-30T17:44:16.051Z] Node Version:  v17.5.0
+[debug] [2022-09-30T17:44:16.053Z] Time:          Fri Sep 30 2022 14:44:16 GMT-0300 (Horário Padrão de Brasília)
+[debug] [2022-09-30T17:44:16.055Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-09-30T17:44:16.510Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-09-30T17:44:16.510Z] > authorizing via signed-in user (amandaoliveirapolari@gmail.com)
+[debug] [2022-09-30T17:44:16.510Z] [iam] checking project miacolhe-sn for permissions ["firebase.projects.get"]
+[debug] [2022-09-30T17:44:16.513Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/miacolhe-sn:testIamPermissions [none]
+[debug] [2022-09-30T17:44:16.515Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/miacolhe-sn:testIamPermissions x-goog-quota-user=projects/miacolhe-sn
+[debug] [2022-09-30T17:44:16.515Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/miacolhe-sn:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2022-09-30T17:44:17.478Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/miacolhe-sn:testIamPermissions 200
+[debug] [2022-09-30T17:44:17.478Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/miacolhe-sn:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2022-09-30T17:44:17.481Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/miacolhe-sn [none]
+[debug] [2022-09-30T17:44:17.975Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/miacolhe-sn 200
+[debug] [2022-09-30T17:44:17.976Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/miacolhe-sn {"projectId":"miacolhe-sn","projectNumber":"548732506486","displayName":"miacolhe-sn","name":"projects/miacolhe-sn","resources":{"hostingSite":"miacolhe-sn","storageBucket":"miacolhe-sn.appspot.com","locationId":"us-central"},"state":"ACTIVE","etag":"1_8495a285-c590-48b0-9b79-6b6f612c96d4"}
+[info] 
+[info] === Serving from 'C:\Users\Amanda Polari\Desktop\laboratoria\SAP008-social-network'...
+[info] 
+[debug] [2022-09-30T17:44:18.056Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/miacolhe-sn/sites 
+[debug] [2022-09-30T17:44:19.365Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/miacolhe-sn/sites 200
+[debug] [2022-09-30T17:44:19.365Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/miacolhe-sn/sites {"sites":[{"name":"projects/miacolhe-sn/sites/miacolhe-sn","defaultUrl":"https://miacolhe-sn.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2022-09-30T17:44:19.368Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/miacolhe-sn/webApps/-/config [none]
+[debug] [2022-09-30T17:44:20.021Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/miacolhe-sn/webApps/-/config 200
+[debug] [2022-09-30T17:44:20.022Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/miacolhe-sn/webApps/-/config {"projectId":"miacolhe-sn","appId":"1:548732506486:web:c61f3e325cc630a019aa57","storageBucket":"miacolhe-sn.appspot.com","locationId":"us-central","apiKey":"AIzaSyB-5Rzb3sQFADnF3ScoTuxqRzkNCTgoSOw","authDomain":"miacolhe-sn.firebaseapp.com","messagingSenderId":"548732506486"}
+[info] i  hosting: Serving hosting files from: public {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mpublic\u001b[22m"}}
+[info] +  hosting: Local server: http://localhost:5000 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://localhost:5000\u001b[22m\u001b[24m"}}
