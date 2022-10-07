@@ -1,75 +1,59 @@
 export default () => {
-    const container = document.createElement('div');
-  
-    const template = `
-      <section class="container-home">
-        <header>
-          <nav>
-            <ul>
-              <li>
-                <a href="/#">Login</a>
-              </li>
-              <!-- adotar -> adopt -->
-              <li>
-                <a href="/#homepage">Quero adotar</a>
-              </li>
-              <!-- informar -> inform -->
-              <li>
-                <a href="/#inform">Quero informações</a>
-              </li>
-              <!-- postar -> post -->
-              <li>
-                <a href="/#post">Quero postar</a>
-              </li>
-            </ul>
-          </nav>
-        </header>
-        
-        <body>
-            <form>
-                <figure class="">
-                    <img class="user" id="user" src="./img/user1.png" alt="imagem do usuário">
-                </figure>
-                <p>@username</p>
+  const container = document.createElement('div');
 
-                <div class="">
-                    <p>Clique aqui para inserir sua foto</p>
-                    <img class="img-add" id="" src="./img/add-foto" alt="imagem a ser adicionada pelo usuário">
-                </div>
+  const template = `    <section class="container-post">
+    <header>
+    <img class= "logo" id= "logo" src="./img/logo.png" alt="logo">
+    </header>
+    <div class="container">
+      <figure class="">
+        <img class="photo-user" id="photo-user" src="./img/user.png" alt="imagem do usuário">
+      </figure>
+      <p class="name-user">@username</p>
+      <p class="control-text">PÁGINA PARA ADICIONAR POST</p>
+      <form class="form-text">
+        <textarea class="typing-area">
+          Clique aqui para inserir seu texto
+        </textarea>
+        <button class="btn" id="btn-post">
+          Postar
+        </button>
+      </form>
 
-                <textarea>
-                    Clique aqui para inserir seu texto
-                </textarea>
-
-                <select class="select" id="select" >
-                    <optgroup name="" label="Você Deseja:">
-                    <option value="">Informar</option>
-                    <option value="">Doar</option>
-                </select>
-
-                <button type="submit">Publicar</button>
-            </form>
-        </body>
-
-        
-        <footer>
-          <nav>
-            <ul>
-              <li>
-                <a href="/#devs">Devs</a>
-              </li>
-              <li>
-                <a href="/#homepage">Início</a>
-              </li>
-              <button>Topo</button>
-              <li>
-                <a href="/#">Sair</a>
-              </li>
-            </ul>
-          </nav>
-        </footer>
-      </section>`;
-    container.innerHTML = template;
-    return container;
-  };
-  
+          <img class="icon" id="to-top" src="./img/to-top.png" alt="icone de voltar ao topo">
+    </div>
+    <footer>
+      <nav>
+        <ul>
+          <li>
+            <a href="/#homepage">
+              <img class="icon" id="icon-home" src="./img/icon-homepage.png" alt="icone de homepage">
+            </a>
+          </li>
+          <li>
+            <a href="/#post">
+              <img class="icon" id="icon-add" src="./img/icon-add-post.png" alt="icone de adicionar post">
+            </a>
+          </li>
+          <li>
+            <a href="/#devs">
+              <img class="icon" id="icon-info" src="./img/icon-info.png" alt="icone de informações">
+            </a>
+          </li>
+          <li>
+            <a href="/#">
+            <img class="icon" id="icon-exit" src="./img/icon-exit.png" alt="icone de sair">
+            </a>
+          </li>
+          <li>
+            <a href="/#inform">
+              <img class="icon"id="icon-settings" src="./img/icon-settings.png" alt="icone de configurações">
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </footer>
+  </section>`;
+  container.innerHTML = template;
+  return container;
+};
