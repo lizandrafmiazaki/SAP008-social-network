@@ -21,13 +21,13 @@ export default () => {
                     <input class="input-username" id="insert-username" placeholder="Insira seu @username"/>
 
                     <label for="insert-email" class="registration-label">E-mail:</label>
-                    <input class="input-email" id="insert-email" placeholder="Insira seu e-mail"/>
+                    <input type="email" class="input-email" id="insert-email" placeholder="Insira seu e-mail"/>
 
                     <label for="insert-password" class="registration-label">Senha:</label>
-                    <input class="input-password" id="insert-password" placeholder="Crie sua senha" />
+                    <input type="password" class="input-password" id="insert-password" placeholder="Crie sua senha" />
                     
                     <label for="insert-confirm" class="registration-label">Senha:</label>
-                    <input class="input-confirmpassword" id="insert-confirm" placeholder="Confirme sua senha" />
+                    <input type="password" class="input-confirmpassword" id="insert-confirm" placeholder="Confirme sua senha" />
 
                     
                     <input type="submit" class="btn-signup">Cadastrar</input>
@@ -42,10 +42,9 @@ export default () => {
 
   // Eventos para capturar inputs:
   const email = container.querySelector("#insert-email");
-
   const password = container.querySelector("#insert-password");
-
   const form = container.querySelector(".form-signup");
+
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
