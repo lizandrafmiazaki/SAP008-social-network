@@ -1,5 +1,10 @@
+import app from "../../config-firebase.js";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+} from "https://www.gstatic.com/firebasejs/9.9.4/firebase-auth.js";
 export default () => {
-  const container = document.createElement('div');
+  const container = document.createElement("div");
 
   const template = `
         <section class="container-signup">
@@ -7,7 +12,7 @@ export default () => {
                 <img class= "logo" id= "logo" src="./img/logo.png" alt="logo">
             </figure>
             <h1>Cadastro</h1>
-            <section class="form-signup">
+            <form class="form-signup">
                 <div class="name-lastname">
                     <label for="insert-name" class="registration-label" id="label-name">Nome completo:</label>
                     <input class="input-name-lastname" id="insert-name" placeholder="Insira seu nome e sobrenome"/>
@@ -23,16 +28,44 @@ export default () => {
                     
                     <label for="insert-confirm" class="registration-label">Senha:</label>
                     <input class="input-confirmpassword" id="insert-confirm" placeholder="Confirme sua senha" />
-            </section>
+
+                    
+                    <input type="submit" class="btn-signup">Cadastrar</input>
+                    <button class="btn-clear">Limpar todos os campos</button>
+            </form>
                 <div class="btn-signup">
-
-                    <button class="btn" id="btn-clear">Limpar Campos</button>
-
-                    <a href= "/#homepage"><button class="btn" id="btn-signup">Cadastrar</button></a>
 
                     <a href= "/#"><button class="btn" id="btn-initial">Retornar ao Login</button></a>
                 </div>
         </section>`;
   container.innerHTML = template;
+
+  // Eventos para capturar inputs:
+  const email = container.querySelector("#insert-email");
+
+  const password = container.querySelector("#insert-password");
+
+  const form = container.querySelector(".form-signup");
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const auth = getAuth(app);
+    createUserWithEmailAndPassword(auth, email.value, password.value)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        console.log(user);
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // ..
+      });
+    console.log("submit");
+    console.log(email.value);
+    console.log(password.value);
+  });
+
   return container;
 };
