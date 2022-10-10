@@ -1,17 +1,18 @@
-/* ZERANDO AS CONFIGURAÇÕES PADRÕES: */
+/* ZERANDO AS CONFIGURAÇÕES PADRÕES E APLICANDO DEGRADÊ: */
 body {
     margin: 0;
     padding: 0;
-    background: pink;
+    background-image: linear-gradient(140deg, #B9C0FC, #D7B2F2, #AB9CF2,#AB9BF6 , #ECBFF4);
+    background-attachment: fixed;
     text-align: center;
 }
 
 /* ===> MODELO FIRST MOBILE <=== */
 /* FORMULÁRIO DE LOGIN */
-section {
-    border: solid #000;
+.container-login {
+    border: solid #5D2963 2px;
     padding: 1rem;
-    margin: 2rem;
+    margin: 1rem 2rem;
     text-align: center;
     border-radius:1em;
 }
@@ -28,23 +29,79 @@ input {
 /* BOTÕES */
 .btn {
     margin: 0.1rem;
+
+/* degrade-btn-test-figma */
+    background: linear-gradient(180deg, rgba(247, 166, 255, 0.79) 6.97%, rgba(247, 166, 255, 0.792214) 6.97%, rgba(176, 123, 245, 0.54) 56.95%, rgba(115, 120, 255, 0.81) 92.41%);
+    border: 1.5px solid #5D2963;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 6px;
+/* test-figma-fim */
+
+    /* degrade-btn-figma-inicio */
+    /* box-sizing: border-box;
+    background: linear-gradient(180deg, #FECBEC 2%, #FC6CC8 47.92%, #3586bb 100%);
+    background-blend-mode: overlay;
+    border: 1.5px solid #5D2963;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 6px;
+    text-shadow: 0px 4px 4px rgba(255, 255, 255, 0.2); */
+    /* figma-fim */
+    
+    font-family: 'Life Savers', cursiva;
+    font-weight: 800;
+height: 36px;
+
+}
+
+#btn-login {
+    width: 122px;
+}
+
+#btn-login-google {
+    width: 161px;
+}
+
+#btn-register {
+    width: 210px;
 }
 
 /* DIVISÓRIAS */
 .lines {
     padding: 0.5rem 0rem;
     margin-bottom: 1rem;
-    border-bottom: solid #000;
+    border-bottom: solid #5D2963;
     border-width: thin;
 }
 
 /* LOGO */
 .logo {
+    margin-top: 20px;
     width: 6rem;
 }
 
 /* TÍTULO */
-h1 {
-    font-family: 'Emilys Candy', cursive;
+h1, .label, .btn {
+    color: #5D2963;
+    font-family: 'Life Savers', cursiva;
+    font-weight: 800;
+}
 
+/* FORMS, INPUTS E LABELS */
+form {
+    text-align: start;
+}
+
+.label {
+    display: flex;
+    text-align: start;
+}
+
+.input {
+    width: 260px;
+    height: 30px;
+    background: #FFCBED;
+    border-radius: 6px;
+    border: #5D2963 solid 2px;
+    margin: 0.5em 0;
+    margin-bottom: 1em;
 }

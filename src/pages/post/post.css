@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.typing-area {
+  display: block;
+  top: 170px;
+  background: #ffcbed;
+  width: 290px;
+  height: 182px;
+  margin: 20px;
+}
+
+#btn-post {
+  box-sizing: border-box;
+  width: 76px;
+  height: 36px;
+  left: 122px;
+  top: 100px;
+  background: linear-gradient(180deg, #fecbec 0%, #fc6cc8 47.92%, #1d82c7 100%);
+  background-blend-mode: overlay;
+  border: 1.5px solid #5d2963;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 6px;
+}
+
+.form-text {
+  position: absolute;
+  top: 250px;
+  display: block;
+  text-align: center;
+}
