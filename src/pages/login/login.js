@@ -6,9 +6,9 @@ export default () => {
     <section class="container-login">
       <h1>Bem-vinda ao Code Girls</h1>
           <div>
-          <label class="label" id="label" for="input-name">Nome:</label>
+          <label class="label" id="label" for="input-name">E-mail:</label>
             <input name="" id="input-name" placeholder="Insira seu e-mail" class="input"></input>
-            <label class="label" id="label" for="input-email">E-mail:</label>
+            <label class="label" id="label" for="input-email">Senha:</label>
             <input name="" id="input-email" placeholder="Insira sua senha" class="input"></input>
           </div>
           <a href= "/#homepage"><button class="btn" id="btn-login">Entrar</button></a>
