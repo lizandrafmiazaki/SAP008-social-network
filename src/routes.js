@@ -1,50 +1,47 @@
-//FIREBASE:
-import "./config-firebase.js"
+import './config-firebase.js';
 import { myFunction } from './lib/index.js';
+import login from './pages/login/login.js';
+import signup from './pages/signup/signup.js';
+import homepage from './pages/homepage/homepage.js';
+import profile from './pages/profile/profile.js';
+import post from './pages/post/post.js';
+import devs from './pages/devs/devs.js';
 
 myFunction();
 //------------------------
 
-import login from "./pages/login/login.js";
-import signup from "./pages/signup/signup.js";
-import homepage from "./pages/homepage/homepage.js";
-import inform from "./pages/inform/inform.js";
-import post from "./pages/post/post.js";
-import devs from "./pages/devs/devs.js";
-
-
-const routes = document.querySelector("#root");
+const routes = document.querySelector('#root');
 
 const init = () => {
-  window.addEventListener("hashchange", () => {
-    routes.innerHTML = "";
+  window.addEventListener('hashchange', () => {
+    routes.innerHTML = '';
     switch (window.location.hash) {
-      case " ":
+      case ' ':
         routes.appendChild(login());
         break;
-      case "#signup":
+      case '#signup':
         routes.appendChild(signup());
         break;
-      case "#homepage":
+      case '#homepage':
         routes.appendChild(homepage());
         break;
-      case "#inform":
-        routes.appendChild(inform());
+      case '#profile':
+        routes.appendChild(profile());
         break;
-      case "#post":
+      case '#post':
         routes.appendChild(post());
         break;
-      case "#devs":
+      case '#devs':
         routes.appendChild(devs());
         break;
       default:
-        routes.innerHTML = "";
+        routes.innerHTML = '';
         routes.appendChild(login());
     }
   });
 };
 
-window.addEventListener("load", () => {
+window.addEventListener('load', () => {
   routes.appendChild(login());
   init();
 });
