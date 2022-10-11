@@ -80,7 +80,7 @@ height: 36px;
 }
 
 /* TÍTULO */
-h1, .label, .btn {
+h1, .login-label, .btn {
     color: #5D2963;
     font-family: 'Life Savers', cursiva;
     font-weight: 800;
@@ -91,12 +91,12 @@ form {
     text-align: start;
 }
 
-.label {
+.login-label {
     display: flex;
     text-align: start;
 }
 
-.input {
+.input-area {
     width: 260px;
     height: 30px;
     background: #FFCBED;
