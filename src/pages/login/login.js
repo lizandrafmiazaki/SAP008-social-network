@@ -1,9 +1,10 @@
-import app from '../../firebase/config-firebase.js';
-import { errorMessages } from '../../firebase/erros.js';
 import {
   getAuth,
   signInWithEmailAndPassword,
+// eslint-disable-next-line import/no-unresolved
 } from 'https://www.gstatic.com/firebasejs/9.9.4/firebase-auth.js';
+import app from '../../firebase/config-firebase.js';
+import { errorMessages } from '../../firebase/erros.js';
 
 export default () => {
   const container = document.createElement('div');
@@ -52,6 +53,8 @@ export default () => {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
+        // eslint-disable-next-line no-console
+        console.log(user);
         window.location.hash = '#homepage';
         // ...
       })
@@ -68,9 +71,9 @@ export default () => {
       });
 
     // testando:
-    console.log('submit');
-    console.log(email.value);
-    console.log(password.value);
+    // console.log('submit');
+    // console.log(email.value);
+    // console.log(password.value);
   });
 
   return container;
