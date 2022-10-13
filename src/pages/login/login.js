@@ -1,8 +1,7 @@
-import app from '../../config-firebase.js';
+import app from '../../firebase/config-firebase.js';
 import {
   getAuth,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
+  signInWithEmailAndPassword
 } from 'https://www.gstatic.com/firebasejs/9.9.4/firebase-auth.js';
 
 export default () => {

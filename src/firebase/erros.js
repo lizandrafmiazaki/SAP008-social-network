@@ -1,5 +1,7 @@
 export function errorMessages(error) {
     switch (error.code) {
+      case '':
+        return 'Por favor, preencha os campos obrigatórios.'
       case 'auth/invalid-email':
         return 'O endereço de e-mail não é válido. Por favor, digite um e-mail válido.';
       case 'auth/email-already-in-use':

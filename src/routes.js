@@ -1,5 +1,5 @@
-import './config-firebase.js';
-import { myFunction } from './lib/index.js';
+import './firebase/config-firebase.js';
+import { myFunction } from './firebase/index.js';
 import login from './pages/login/login.js';
 import signup from './pages/signup/signup.js';
 import homepage from './pages/homepage/homepage.js';
