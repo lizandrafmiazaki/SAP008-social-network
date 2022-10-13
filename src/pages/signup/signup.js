@@ -1,10 +1,9 @@
-import {app} from '../../config-firebase.js';
-import {errorMessages} from '../../lib/erros.js';
+import app from '../../firebase/config-firebase.js';
+import {errorMessages} from '../../firebase/erros.js';
 
 import {
   getAuth,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword
 } from 'https://www.gstatic.com/firebasejs/9.9.4/firebase-auth.js';
 
 export default () => {
@@ -64,8 +63,7 @@ export default () => {
       })
       .catch((error) => {
         errorOutput.innerHTML = errorMessages(error);
-        const errorCode = error.code;
-        const errorMessage = error.message;
+
         // ..
       });
     // signInWithEmailAndPassword(auth, email.value, password.value)
