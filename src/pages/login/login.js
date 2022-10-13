@@ -19,15 +19,15 @@ export default () => {
 
             <label for="input-password" class="login-label" id="label-password">Senha:</label>
             <input type="password" class="input-area" id="input-password" placeholder="Insira sua senha"/>
-
+            <br>
             <button type="submit" class="btn" id="btn-login">Entrar</button>
           </form>
           
-          <div class="lines"></div>
+          <hr>
 
           <button class="btn" id="btn-login-google">Login com Google</button>
 
-          <div class="lines"></div>
+          <hr>
           
           <a href= "/#signup"><button class="btn" id="btn-register">Clique aqui para se cadastrar</button></a> 
 

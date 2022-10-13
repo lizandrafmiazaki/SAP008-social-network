@@ -1,4 +1,6 @@
-import app from '../../config-firebase.js';
+import {app} from '../../config-firebase.js';
+import {errorMessages} from '../../lib/erros.js';
+
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -27,6 +29,8 @@ export default () => {
               <label for="insert-password" class="registration-label">Senha:</label>
               <input type="password" class="input-password" id="insert-password" placeholder="Crie sua senha" />
               
+              <p class="error-output"></p>
+
               <input type="submit" class="btn" id="btn-cadastrar" value="Cadastrar"/>
 
               <button class="btn" id="btn-clean">Limpar campos</button>            
@@ -44,6 +48,7 @@ export default () => {
   const email = container.querySelector('#insert-email');
   const password = container.querySelector('#insert-password');
   const form = container.querySelector('.form-signup');
+  const errorOutput = container.querySelector('.error-output');
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -58,6 +63,7 @@ export default () => {
         // ...
       })
       .catch((error) => {
+        errorOutput.innerHTML = errorMessages(error);
         const errorCode = error.code;
         const errorMessage = error.message;
         // ..
