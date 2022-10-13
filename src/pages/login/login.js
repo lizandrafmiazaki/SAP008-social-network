@@ -1,8 +1,10 @@
-import app from '../../firebase/config-firebase.js';
 import {
   getAuth,
-  signInWithEmailAndPassword
+  signInWithEmailAndPassword,
+// eslint-disable-next-line import/no-unresolved
 } from 'https://www.gstatic.com/firebasejs/9.9.4/firebase-auth.js';
+import app from '../../firebase/config-firebase.js';
+import { errorMessages } from '../../firebase/erros.js';
 
 export default () => {
   const container = document.createElement('div');
@@ -18,6 +20,8 @@ export default () => {
 
             <label for="input-password" class="login-label" id="label-password">Senha:</label>
             <input type="password" class="input-area" id="input-password" placeholder="Insira sua senha"/>
+            <p class="error-output"></p>
+            <p class="error-output2"></p>
             <br>
             <button type="submit" class="btn" id="btn-login">Entrar</button>
           </form>
@@ -31,12 +35,15 @@ export default () => {
           <a href= "/#signup"><button class="btn" id="btn-register">Clique aqui para se cadastrar</button></a> 
 
     </section>
-    `;container.innerHTML = template;
+    `;
+  container.innerHTML = template;
 
-    // Eventos para capturar inputs:
+  // Eventos para capturar inputs:
   const email = container.querySelector('#input-email');
   const password = container.querySelector('#input-password');
   const form = container.querySelector('.form-login');
+  const errorOutput = container.querySelector('.error-output');
+  // const outroErrorOutput = container.querySelector('.error-output2');
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -46,18 +53,27 @@ export default () => {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
+        // eslint-disable-next-line no-console
+        console.log(user);
         window.location.hash = '#homepage';
         // ...
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
+        // outroErrorOutput.innerHTML = fieldVerification(
+        //   inputName.value,
+        //   inputUsername.value,
+        //   email.value,
+        //   password.value
+        // );
+        errorOutput.innerHTML = errorMessages(error);
+        // const errorCode = error.code;
+        // const errorMessage = error.message;
       });
 
     // testando:
-    console.log('submit');
-    console.log(email.value);
-    console.log(password.value);
+    // console.log('submit');
+    // console.log(email.value);
+    // console.log(password.value);
   });
 
   return container;

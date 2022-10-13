@@ -1,5 +1,5 @@
 import app from '../../firebase/config-firebase.js';
-import {errorMessages} from '../../firebase/erros.js';
+import { errorMessages, fieldVerification } from '../../firebase/erros.js';
 
 import {
   getAuth,
@@ -29,6 +29,7 @@ export default () => {
               <input type="password" class="input-password" id="insert-password" placeholder="Crie sua senha" />
               
               <p class="error-output"></p>
+              <p class="error-output2"></p>
 
               <input type="submit" class="btn" id="btn-cadastrar" value="Cadastrar"/>
 
@@ -48,6 +49,7 @@ export default () => {
   const password = container.querySelector('#insert-password');
   const form = container.querySelector('.form-signup');
   const errorOutput = container.querySelector('.error-output');
+  const outroErrorOutput = container.querySelector('.error-output2');
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -62,8 +64,13 @@ export default () => {
         // ...
       })
       .catch((error) => {
+        outroErrorOutput.innerHTML = fieldVerification(
+          inputName.value,
+          inputUsername.value,
+          email.value,
+          password.value
+        );
         errorOutput.innerHTML = errorMessages(error);
-
         // ..
       });
     // signInWithEmailAndPassword(auth, email.value, password.value)
