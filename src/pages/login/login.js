@@ -3,8 +3,8 @@ import {
   signInWithEmailAndPassword,
 // eslint-disable-next-line import/no-unresolved
 } from 'https://www.gstatic.com/firebasejs/9.9.4/firebase-auth.js';
-import app from '../../firebase/config-firebase.js';
-import { errorMessages } from '../../firebase/erros.js';
+import app from '../../lib/config-firebase.js';
+import { errorMessages } from '../../lib/erros.js';
 
 export default () => {
   const container = document.createElement('div');

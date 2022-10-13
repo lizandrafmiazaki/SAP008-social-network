@@ -1,5 +1,5 @@
-import app from '../../firebase/config-firebase.js';
-import { errorMessages, fieldVerification } from '../../firebase/erros.js';
+import app from '../../lib/config-firebase.js';
+import { errorMessages, fieldVerification } from '../../lib/erros.js';
 
 import {
   getAuth,
