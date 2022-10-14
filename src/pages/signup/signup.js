@@ -1,5 +1,5 @@
 import app from '../../lib/config-firebase.js';
-import { errorMessages, fieldVerification } from '../../lib/erros.js';
+import { errorMessages, fieldVerification, passwordValidation } from '../../lib/erros.js';
 
 import {
   getAuth,
@@ -30,6 +30,7 @@ export default () => {
               
               <p class="error-output"></p>
               <p class="error-output2"></p>
+              <p class="error-output3"></p>
 
               <input type="submit" class="btn" id="btn-cadastrar" value="Cadastrar"/>
 
@@ -50,6 +51,7 @@ export default () => {
   const form = container.querySelector('.form-signup');
   const errorOutput = container.querySelector('.error-output');
   const otherErrorOutput = container.querySelector('.error-output2');
+  const outputValidationPassword = container.querySelector('.error-output3');
   const btnReturn = container.querySelector('#btn-initial');
 
   btnReturn.addEventListener('click', () => window.location.replace('#'));
@@ -58,15 +60,20 @@ export default () => {
     e.preventDefault();
     otherErrorOutput.innerHTML = '';
     errorOutput.innerHTML = '';
-    
+    outputValidationPassword.innerHTML = '';
+
     const validationError = fieldVerification(
       inputName.value,
       inputUsername.value,
       email.value,
       password.value
     );
+    const validationPassword = passwordValidation (password.value);
+
     if (validationError){
       otherErrorOutput.innerHTML = validationError;
+    } else if (validationPassword){
+      outputValidationPassword.innerHTML = validationPassword;
     } else {
       const auth = getAuth(app);
       createUserWithEmailAndPassword(auth, email.value, password.value)
