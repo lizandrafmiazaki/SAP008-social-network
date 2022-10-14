@@ -1,5 +1,5 @@
-import app from '../../firebase/config-firebase.js';
-import { errorMessages, fieldVerification } from '../../firebase/erros.js';
+import app from '../../lib/config-firebase.js';
+import { errorMessages, fieldVerification } from '../../lib/erros.js';
 
 import {
   getAuth,
@@ -49,7 +49,10 @@ export default () => {
   const password = container.querySelector('#insert-password');
   const form = container.querySelector('.form-signup');
   const errorOutput = container.querySelector('.error-output');
-  const outroErrorOutput = container.querySelector('.error-output2');
+  const otherErrorOutput = container.querySelector('.error-output2');
+  const btnReturn = container.querySelector('#btn-initial');
+
+  btnReturn.addEventListener('click', () => window.location.replace('#'));
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -64,13 +67,14 @@ export default () => {
         // ...
       })
       .catch((error) => {
-        outroErrorOutput.innerHTML = fieldVerification(
+        errorOutput.innerHTML = errorMessages(error);
+        otherErrorOutput.innerHTML = fieldVerification(
           inputName.value,
           inputUsername.value,
           email.value,
           password.value
         );
-        errorOutput.innerHTML = errorMessages(error);
+
         // ..
       });
     // signInWithEmailAndPassword(auth, email.value, password.value)
@@ -94,3 +98,4 @@ export default () => {
 
   return container;
 };
+

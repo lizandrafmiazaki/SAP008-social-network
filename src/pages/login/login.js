@@ -3,8 +3,8 @@ import {
   signInWithEmailAndPassword,
 // eslint-disable-next-line import/no-unresolved
 } from 'https://www.gstatic.com/firebasejs/9.9.4/firebase-auth.js';
-import app from '../../firebase/config-firebase.js';
-import { errorMessages } from '../../firebase/erros.js';
+import app from '../../lib/config-firebase.js';
+import { errorMessages } from '../../lib/erros.js';
 
 export default () => {
   const container = document.createElement('div');
@@ -20,9 +20,10 @@ export default () => {
 
             <label for="input-password" class="login-label" id="label-password">Senha:</label>
             <input type="password" class="input-area" id="input-password" placeholder="Insira sua senha"/>
+            
             <p class="error-output"></p>
             <p class="error-output2"></p>
-            <br>
+
             <button type="submit" class="btn" id="btn-login">Entrar</button>
           </form>
           
@@ -43,8 +44,7 @@ export default () => {
   const password = container.querySelector('#input-password');
   const form = container.querySelector('.form-login');
   const errorOutput = container.querySelector('.error-output');
-  // const outroErrorOutput = container.querySelector('.error-output2');
-
+  
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
@@ -59,13 +59,8 @@ export default () => {
         // ...
       })
       .catch((error) => {
-        // outroErrorOutput.innerHTML = fieldVerification(
-        //   inputName.value,
-        //   inputUsername.value,
-        //   email.value,
-        //   password.value
-        // );
         errorOutput.innerHTML = errorMessages(error);
+        
         // const errorCode = error.code;
         // const errorMessage = error.message;
       });
