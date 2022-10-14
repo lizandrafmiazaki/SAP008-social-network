@@ -17,16 +17,16 @@ export default () => {
             <h1>Cadastro</h1>
             <form class="form-signup">
               <label for="insert-name" class="registration-label" id="label-name">Nome:</label>
-              <input class="input-name" id="insert-name" placeholder="Insira seu nome"/>
+              <input class="input-form" id="insert-name" placeholder="Insira seu nome"/>
               
               <label for="insert-username" class="registration-label">Nome de usuário:</label>
-              <input class="input-username" id="insert-username" placeholder="Insira seu @username"/>
+              <input class="input-form" id="insert-username" placeholder="Insira seu @username"/>
 
               <label for="insert-email" class="registration-label">E-mail:</label>
-              <input type="email" class="input-email" id="insert-email" placeholder="Insira seu e-mail"/>
+              <input type="email" class="input-form" id="insert-email" placeholder="Insira seu e-mail"/>
 
               <label for="insert-password" class="registration-label">Senha:</label>
-              <input type="password" class="input-password" id="insert-password" placeholder="Crie sua senha" />
+              <input type="password" class="input-form" id="insert-password" placeholder="Crie sua senha" />
               
               <p class="error-output"></p>
               <p class="error-output2"></p>
@@ -34,7 +34,7 @@ export default () => {
 
               <input type="submit" class="btn" id="btn-cadastrar" value="Cadastrar"/>
 
-              <button class="btn" id="btn-clean">Limpar campos</button>            
+              <input type="reset" class="btn" id="btn-clean" value="Limpar campos"/>            
               
             </form>
             
