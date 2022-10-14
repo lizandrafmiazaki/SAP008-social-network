@@ -56,27 +56,36 @@ export default () => {
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
+    otherErrorOutput.innerHTML = '';
+    errorOutput.innerHTML = '';
+    
+    const validationError = fieldVerification(
+      inputName.value,
+      inputUsername.value,
+      email.value,
+      password.value
+    );
+    if (validationError){
+      otherErrorOutput.innerHTML = validationError;
+    } else {
+      const auth = getAuth(app);
+      createUserWithEmailAndPassword(auth, email.value, password.value)
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          window.location.hash = '#homepage';
+          console.log(user);
+          // ...
+        })
+        .catch((error) => {
+          errorOutput.innerHTML = errorMessages(error);
+          
+  
+          // ..
+        });
+    }
 
-    const auth = getAuth(app);
-    createUserWithEmailAndPassword(auth, email.value, password.value)
-      .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        window.location.hash = '#homepage';
-        console.log(user);
-        // ...
-      })
-      .catch((error) => {
-        errorOutput.innerHTML = errorMessages(error);
-        otherErrorOutput.innerHTML = fieldVerification(
-          inputName.value,
-          inputUsername.value,
-          email.value,
-          password.value
-        );
-
-        // ..
-      });
+    
     // signInWithEmailAndPassword(auth, email.value, password.value)
     //   .then((userCredential) => {
     //     // Signed in

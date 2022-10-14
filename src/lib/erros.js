@@ -9,7 +9,7 @@ export function errorMessages(error) {
     case 'auth/weak-password':
       return 'A senha deve possuir pelo menos 6 caracteres.';
     default:
-      return null;
+      return `Aconteceu um erro inesperado. Por favor, entre em contato e informe o erro as desenvolvedoras: código ${error.code}`;
   }
 }
 
@@ -26,5 +26,5 @@ export function fieldVerification(name, username, email, password) {
   if (password === '') {
     return 'Por favor, digite sua senha.';
   }
-  return '';
+  return;
 }
