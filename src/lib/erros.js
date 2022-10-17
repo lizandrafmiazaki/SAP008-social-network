@@ -28,11 +28,9 @@ export function fieldVerification(name, username, email, password) {
   if (email === '') {
     return 'Por favor, digite sua e-mail.';
   }
-  if (password === '') {
-    return 'Por favor, digite sua senha.';
-  }
   return;
 }
+
 
 export function passwordValidation (password) {
   password = password.trim();
@@ -46,3 +44,47 @@ export function passwordValidation (password) {
   return;
 }
 
+export function loginValidation (email, password) {
+  if (email ==='' && password ==='') {
+    return 'Por favor, preencha todos os campos.'
+  }
+  if (email === '') {
+    return 'Por favor, digite sua e-mail.';
+  }
+  if (password === '') {
+    return 'Por favor, digite sua senha.';
+  }
+  return;
+}
+
+
+// export function formValidation (email, password, name, username) {
+//   email = email.trim()
+//   password = password.trim();
+//   name = name.trim();
+//   username = username.trim();
+
+//   if (email ==='' && password ==='') {
+//     return 'Por favor, digite seu e-mail e senha.'
+//   } 
+//   if (email ==='' && password ==='' && name ==='' && username ==='') {
+//     return 'Por favor, preencha todos os campos.'
+//   }
+//   if (email === '') {
+//     return 'Por favor, digite sua e-mail.';
+//   }
+//   if (password === '') {
+//     return 'Por favor, digite sua senha.';
+//   }
+//   if (password.length < 6) {
+//     return 'A senha deve possuir pelo menos 6 caracteres.'
+//   }
+//   if (name === '') {
+//     return 'Por favor, digite seu nome.';
+//   }
+//   if (username === '') {
+//     return 'Por favor, preencha seu username.';
+//   }
+
+//   return;
+// }

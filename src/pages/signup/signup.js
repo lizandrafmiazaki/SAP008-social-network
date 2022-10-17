@@ -1,10 +1,11 @@
 import app from '../../lib/config-firebase.js';
-import { errorMessages, fieldVerification, passwordValidation } from '../../lib/erros.js';
 
 import {
   getAuth,
   createUserWithEmailAndPassword
 } from 'https://www.gstatic.com/firebasejs/9.9.4/firebase-auth.js';
+
+import { errorMessages, fieldVerification, passwordValidation } from '../../lib/erros.js';
 
 export default () => {
   const container = document.createElement('div');
@@ -68,6 +69,7 @@ export default () => {
       email.value,
       password.value
     );
+
     const validationPassword = passwordValidation (password.value);
 
     if (validationError){
@@ -91,18 +93,6 @@ export default () => {
           // ..
         });
     }
-
-    
-    // signInWithEmailAndPassword(auth, email.value, password.value)
-    //   .then((userCredential) => {
-    //     // Signed in
-    //     const user = userCredential.user;
-    //     // ...
-    //   })
-    //   .catch((error) => {
-    //     const errorCode = error.code;
-    //     const errorMessage = error.message;
-    //   });
 
     //testando:
     console.log('submit');
