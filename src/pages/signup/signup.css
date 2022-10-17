@@ -11,7 +11,7 @@ body {
   display: block;
 }
 
-input {
+.input-form {
   width: 260px;
   height: 30px;
   background: #ffcbed;
@@ -19,16 +19,18 @@ input {
   border: #5d2963 solid 2px;
 }
 
-#btn-cadastrar {
+.btn {
   display: block;
-  width: 150px;
-  height: 40px;
   text-align: center;
+  margin: 20px auto;
+}
+#btn-cadastrar {
   border: #5d2963 solid 3px;
   font-weight: 1800;
-  margin: auto;
+  width: 150px;
 }
 
 #btn-clean, #btn-initial {
-  opacity: 0.4;
+  opacity: 0.7;
+  width: 120px;
 }
