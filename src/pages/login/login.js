@@ -1,10 +1,12 @@
+import app from '../../lib/config-firebase.js';
+
 import {
   getAuth,
   signInWithEmailAndPassword,
 // eslint-disable-next-line import/no-unresolved
 } from 'https://www.gstatic.com/firebasejs/9.9.4/firebase-auth.js';
-import app from '../../lib/config-firebase.js';
-import { errorMessages } from '../../lib/erros.js';
+
+import { errorMessages, loginValidation, passwordValidation } from '../../lib/erros.js';
 
 export default () => {
   const container = document.createElement('div');
@@ -23,6 +25,7 @@ export default () => {
             
             <p class="error-output"></p>
             <p class="error-output2"></p>
+            <p class="error-output3"></p>
 
             <button type="submit" class="btn" id="btn-login">Entrar</button>
           </form>
@@ -40,10 +43,23 @@ export default () => {
   const password = container.querySelector('#input-password');
   const form = container.querySelector('.form-login');
   const errorOutput = container.querySelector('.error-output');
+  const otherErrorOutput = container.querySelector('.error-output2');
+  const outputValidationPassword = container.querySelector('.error-output3');
   
   form.addEventListener('submit', (e) => {
     e.preventDefault();
+    otherErrorOutput.innerHTML = '';
+    errorOutput.innerHTML = '';
+    outputValidationPassword.innerHTML = '';
+    
+    const validationLogin = loginValidation(email.value, password.value);
+    const validationPassword = passwordValidation (password.value);
 
+    if (validationLogin){
+      otherErrorOutput.innerHTML = validationLogin;
+    } else if (validationPassword){
+      outputValidationPassword.innerHTML = validationPassword;
+    } else {
     const auth = getAuth(app);
     signInWithEmailAndPassword(auth, email.value, password.value)
       .then((userCredential) => {
@@ -56,11 +72,9 @@ export default () => {
       })
       .catch((error) => {
         errorOutput.innerHTML = errorMessages(error);
-        
-        // const errorCode = error.code;
-        // const errorMessage = error.message;
+    
       });
-
+    };
     // testando:
     // console.log('submit');
     // console.log(email.value);
@@ -68,4 +82,4 @@ export default () => {
   });
 
   return container;
-};
+}
