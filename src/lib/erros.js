@@ -15,7 +15,7 @@ export function errorMessages(error) {
   }
 }
 
-export function fieldVerification(name, username, email, password) {
+export function signupValidation(name, username, email, password) {
   if (name ==='' && username ==='' && email ==='' && password ==='') {
     return 'Por favor, preencha todos os campos.'
   }

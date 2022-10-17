@@ -5,7 +5,7 @@ import {
   createUserWithEmailAndPassword
 } from 'https://www.gstatic.com/firebasejs/9.9.4/firebase-auth.js';
 
-import { errorMessages, fieldVerification, passwordValidation } from '../../lib/erros.js';
+import { errorMessages, signupValidation, passwordValidation } from '../../lib/erros.js';
 
 export default () => {
   const container = document.createElement('div');
@@ -63,7 +63,7 @@ export default () => {
     errorOutput.innerHTML = '';
     outputValidationPassword.innerHTML = '';
 
-    const validationError = fieldVerification(
+    const validationError = signupValidation(
       inputName.value,
       inputUsername.value,
       email.value,
