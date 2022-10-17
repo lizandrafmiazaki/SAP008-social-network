@@ -18,13 +18,27 @@ body {
 }
 
 /* E-MAIL E SENHA */
-input {
+.input-area {
     padding: 0.5rem;
     height: 1rem;
     width: 16rem;
     text-align: center;
     margin: 0.1rem;
+    border-radius: 6px;
+    background: #FFCBED;
+    border: #5D2963 solid 2px;
+    margin-bottom: 1em;
 }
+
+/* .input-area {
+    width: 260px;
+    height: 30px;
+    background: #FFCBED;
+    border-radius: 6px;
+    border: #5D2963 solid 2px;
+    margin: 0.5em 0;
+    margin-bottom: 1em;
+} */
 
 /* BOTÕES */
 .btn {
@@ -67,7 +81,7 @@ input {
 
 /* DIVISÓRIAS */
 hr {
-    padding: 0.05rem;
+    padding: 0.03rem;
     margin: 1rem 0.1rem;
     background-color: #5D2963;
     border: none;
@@ -83,7 +97,7 @@ hr {
 h1, .login-label, .btn {
     color: #5D2963;
     font-family: 'Life Savers', cursiva;
-    font-weight: 1000;
+    font-weight: 1200;
 }
 
 /* FORMS, INPUTS E LABELS */
@@ -96,12 +110,10 @@ h1, .login-label, .btn {
     text-align: left;
 }
 
-.input-area {
-    width: 260px;
-    height: 30px;
-    background: #FFCBED;
-    border-radius: 6px;
-    border: #5D2963 solid 2px;
-    margin: 0.5em 0;
-    margin-bottom: 1em;
+a:link {
+    text-decoration: none;
+}
+
+a:hover {
+    background-color: #5D2963;
 }

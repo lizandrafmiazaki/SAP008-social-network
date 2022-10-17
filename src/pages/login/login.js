@@ -26,13 +26,9 @@ export default () => {
 
             <button type="submit" class="btn" id="btn-login">Entrar</button>
           </form>
-          
           <hr>
-
           <button class="btn" id="btn-login-google">Login com Google</button>
-
           <hr>
-          
           <a href= "/#signup"><button class="btn" id="btn-register">Clique aqui para se cadastrar</button></a> 
 
     </section>
