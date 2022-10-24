@@ -3,7 +3,7 @@ import {
   getAuth,
   signOut,
 // eslint-disable-next-line import/no-unresolved
-} from 'https://www.gstatic.com/firebasejs/9.9.4/firebase-auth.js';
+} from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js';
 
 export default () => {
   const container = document.createElement('div');
@@ -44,7 +44,7 @@ export default () => {
             </li>
             <li>
               <a href="/#inform">
-                <img class="icon"id="icon-settings" src="./img/icon-settings.png" alt="icone de configurações">
+                <img class="icon" id="icon-settings" src="./img/icon-settings.png" alt="icone de configurações">
               </a>
             </li>
           </ul>

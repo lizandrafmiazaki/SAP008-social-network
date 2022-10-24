@@ -3,7 +3,7 @@ import app from '../../lib/config-firebase.js';
 import {
   getAuth,
   createUserWithEmailAndPassword
-} from 'https://www.gstatic.com/firebasejs/9.9.4/firebase-auth.js';
+} from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js';
 
 import { errorMessages } from '../../lib/erros.js';
 import { signupValidation } from '../../lib/validation.js';
