@@ -3,6 +3,8 @@ import app from '../../lib/config-firebase.js';
 import {
   getAuth,
   signInWithEmailAndPassword,
+  GoogleAuthProvider, 
+  signInWithPopup 
 // eslint-disable-next-line import/no-unresolved
 } from 'https://www.gstatic.com/firebasejs/9.9.4/firebase-auth.js';
 
@@ -44,7 +46,9 @@ export default () => {
   const form = container.querySelector('.form-login');
   const errorOutput = container.querySelector('.error-output');
   const otherErrorOutput = container.querySelector('.error-output2');
-
+  const auth = getAuth(app);
+  const provider = new GoogleAuthProvider(app);
+  const btnLoginGoogle = container.querySelector('#btn-login-google');
   
   form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -56,7 +60,6 @@ export default () => {
     if (validationLogin){
       otherErrorOutput.innerHTML = validationLogin;
     } else {
-    const auth = getAuth(app);
     signInWithEmailAndPassword(auth, email.value, password.value)
       .then((userCredential) => {
         // Signed in
@@ -77,5 +80,22 @@ export default () => {
     // console.log(password.value);
   });
 
+function loginGoogle() {
+  return signInWithPopup(auth, provider)};
+
+  btnLoginGoogle.addEventListener('click', (e) => {
+    e.preventDefault();
+    loginGoogle()
+      .then(() => {
+        window.location.hash = '#homepage';
+      })
+      .catch((error) => {
+        errorOutput.innerHTML = errorMessages(error);
+      });
+  });
+
+
   return container;
 }
+
+// Login com Google:
