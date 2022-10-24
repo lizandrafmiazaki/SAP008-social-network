@@ -1,3 +1,10 @@
+import app from '../../lib/config-firebase.js';
+import {
+  getAuth,
+  signOut,
+// eslint-disable-next-line import/no-unresolved
+} from 'https://www.gstatic.com/firebasejs/9.9.4/firebase-auth.js';
+
 export default () => {
   const container = document.createElement('div');
 
@@ -33,9 +40,7 @@ export default () => {
               </a>
             </li>
             <li>
-              <a href="/#">
               <img class="icon" id="icon-exit" src="./img/icon-exit.png" alt="icone de sair">
-              </a>
             </li>
             <li>
               <a href="/#inform">
@@ -47,5 +52,19 @@ export default () => {
       </footer>
     </section>`;
   container.innerHTML = template;
+
+  const auth = getAuth(app);
+  const btnLogout = container.querySelector('#icon-exit')
+  
+  function logout() {
+    return signOut(auth);
+  }
+
+  btnLogout.addEventListener('click', (e) => {
+    e.preventDefault();
+    logout();
+    window.location.hash = ' ';
+  });
+
   return container;
 };

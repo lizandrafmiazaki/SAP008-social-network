@@ -94,7 +94,6 @@ function loginGoogle() {
       });
   });
 
-
   return container;
 }
 
