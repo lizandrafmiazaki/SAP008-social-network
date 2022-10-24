@@ -18,8 +18,8 @@ export function signupValidation(name, username, email, password) {
         return 'Por favor, digite sua senha.';
       }
     if (password.length < 6) {
-          return 'A senha deve possuir pelo menos 6 caracteres.'
-        }
+          return 'A senha deve possuir pelo menos 6 caracteres.';
+    }
     return;
   }
 
@@ -28,7 +28,7 @@ export function signupValidation(name, username, email, password) {
     email = email.trim();
     password = password.trim();
     if (email ==='' && password ==='') {
-      return 'Por favor, preencha todos os campos.'
+      return 'Por favor, preencha todos os campos.';
     }
     if (email === '') {
       return 'Por favor, digite sua e-mail.';
@@ -37,7 +37,7 @@ export function signupValidation(name, username, email, password) {
       return 'Por favor, digite sua senha.';
     }
     if (password.length < 6) {
-        return 'A senha deve possuir pelo menos 6 caracteres.'
-      }
+        return 'A senha deve possuir pelo menos 6 caracteres.';
+    }
     return;
   }
