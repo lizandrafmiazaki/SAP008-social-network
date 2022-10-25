@@ -6,7 +6,7 @@ import {
   GoogleAuthProvider, 
   signInWithPopup 
 // eslint-disable-next-line import/no-unresolved
-} from 'https://www.gstatic.com/firebasejs/9.9.4/firebase-auth.js';
+} from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js';
 
 import { errorMessages } from '../../lib/erros.js';
 import { loginValidation } from '../../lib/validation.js';
@@ -18,7 +18,7 @@ export default () => {
     <img class= "logo" id= "logo" src="./img/logo.png" alt="logo"> 
     <section class="container-login">
     
-      <h1>Bem-vinda ao Code Girls</h1>
+      <h1>Bem-vinda ao Code Girls!</h1>
           <form class="form-login">
             <label for="input-email" class="login-label" id="label-email">E-mail:</label>
             <input type="email" class="input-area" id="input-email" placeholder="Insira seu e-mail"/>
