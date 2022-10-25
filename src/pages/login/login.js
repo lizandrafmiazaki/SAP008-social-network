@@ -1,12 +1,12 @@
-import app from '../../lib/config-firebase.js';
+// import app from '../../lib/config-firebase.js';
 
-import {
-  getAuth,
-  signInWithEmailAndPassword,
-  GoogleAuthProvider, 
-  signInWithPopup 
-// eslint-disable-next-line import/no-unresolved
-} from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js';
+// import {
+//   getAuth,
+//   signInWithEmailAndPassword,
+//   GoogleAuthProvider,
+//   signInWithPopup
+// // eslint-disable-next-line import/no-unresolved
+// } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js';
 
 import { errorMessages } from '../../lib/erros.js';
 import { loginValidation } from '../../lib/validation.js';
@@ -49,39 +49,39 @@ export default () => {
   const auth = getAuth(app);
   const provider = new GoogleAuthProvider(app);
   const btnLoginGoogle = container.querySelector('#btn-login-google');
-  
+
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     otherErrorOutput.innerHTML = '';
     errorOutput.innerHTML = '';
-    
+
     const validationLogin = loginValidation(email.value, password.value);
-    
-    if (validationLogin){
+
+    if (validationLogin) {
       otherErrorOutput.innerHTML = validationLogin;
     } else {
-    signInWithEmailAndPassword(auth, email.value, password.value)
-      .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        // eslint-disable-next-line no-console
-        console.log(user);
-        window.location.hash = '#homepage';
-        // ...
-      })
-      .catch((error) => {
-        errorOutput.innerHTML = errorMessages(error);
-    
-      });
-    };
+      signInWithEmailAndPassword(auth, email.value, password.value)
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          // eslint-disable-next-line no-console
+          console.log(user);
+          window.location.hash = '#homepage';
+          // ...
+        })
+        .catch((error) => {
+          errorOutput.innerHTML = errorMessages(error);
+        });
+    }
     // testando:
     // console.log('submit');
     // console.log(email.value);
     // console.log(password.value);
   });
 
-function loginGoogle() {
-  return signInWithPopup(auth, provider)};
+  function loginGoogle() {
+    return signInWithPopup(auth, provider);
+  }
 
   btnLoginGoogle.addEventListener('click', (e) => {
     e.preventDefault();
@@ -95,6 +95,6 @@ function loginGoogle() {
   });
 
   return container;
-}
+};
 
 // Login com Google:
