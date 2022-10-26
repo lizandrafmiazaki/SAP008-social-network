@@ -1,9 +1,4 @@
-// import app from '../../lib/config-firebase.js';
-// import {
-//   getAuth,
-//   signOut,
-// // eslint-disable-next-line import/no-unresolved
-// } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js';
+import { logout } from '../../lib/firebase-auth.js';
 
 export default () => {
   const container = document.createElement('div');
@@ -53,12 +48,8 @@ export default () => {
     </section>`;
   container.innerHTML = template;
 
-  const auth = getAuth(app);
   const btnLogout = container.querySelector('#icon-exit')
   
-  function logout() {
-    return signOut(auth);
-  }
 
   btnLogout.addEventListener('click', (e) => {
     e.preventDefault();

@@ -1,6 +1,6 @@
 /* eslint-disable import/no-unresolved */
-import { initializeApp, getFirestore } from './exports.js';
-
+import { initializeApp } from './exports.js';
+// import { initializeApp, getFirestore } from './exports.js';
 const firebaseConfig = {
   apiKey: 'AIzaSyB-5Rzb3sQFADnF3ScoTuxqRzkNCTgoSOw',
   authDomain: 'miacolhe-sn.firebaseapp.com',
@@ -11,5 +11,5 @@ const firebaseConfig = {
 };
 
 export const app = initializeApp(firebaseConfig);
-export const firestore = getFirestore(app); 
+// export const firestore = getFirestore(app); 
 // firestore = db na documentação do firebase.

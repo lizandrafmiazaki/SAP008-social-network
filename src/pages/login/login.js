@@ -1,15 +1,6 @@
-// import app from '../../lib/config-firebase.js';
-
-// import {
-//   getAuth,
-//   signInWithEmailAndPassword,
-//   GoogleAuthProvider,
-//   signInWithPopup
-// // eslint-disable-next-line import/no-unresolved
-// } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js';
-
-import { errorMessages } from '../../lib/erros.js';
+import { loginWithUser, loginWithGoogle } from '../../lib/firebase-auth.js';
 import { loginValidation } from '../../lib/validation.js';
+import { errorMessages } from '../../lib/erros.js';
 
 export default () => {
   const container = document.createElement('div');
@@ -46,8 +37,6 @@ export default () => {
   const form = container.querySelector('.form-login');
   const errorOutput = container.querySelector('.error-output');
   const otherErrorOutput = container.querySelector('.error-output2');
-  const auth = getAuth(app);
-  const provider = new GoogleAuthProvider(app);
   const btnLoginGoogle = container.querySelector('#btn-login-google');
 
   form.addEventListener('submit', (e) => {
@@ -60,32 +49,27 @@ export default () => {
     if (validationLogin) {
       otherErrorOutput.innerHTML = validationLogin;
     } else {
-      signInWithEmailAndPassword(auth, email.value, password.value)
+      //=> ENTRADA DA NOVA FUNÇÃO DE NOVO USUÁRIO
+      loginWithUser(email.value, password.value)
         .then((userCredential) => {
-          // Signed in
           const user = userCredential.user;
-          // eslint-disable-next-line no-console
           console.log(user);
           window.location.hash = '#homepage';
-          // ...
         })
         .catch((error) => {
           errorOutput.innerHTML = errorMessages(error);
         });
     }
-    // testando:
-    // console.log('submit');
-    // console.log(email.value);
-    // console.log(password.value);
+    //testando:
+    //console.log('submit');
+    //console.log(email.value);
+    //console.log(password.value);
   });
 
-  function loginGoogle() {
-    return signInWithPopup(auth, provider);
-  }
-
+  
   btnLoginGoogle.addEventListener('click', (e) => {
     e.preventDefault();
-    loginGoogle()
+    loginWithGoogle()
       .then(() => {
         window.location.hash = '#homepage';
       })
@@ -97,4 +81,3 @@ export default () => {
   return container;
 };
 
-// Login com Google:
