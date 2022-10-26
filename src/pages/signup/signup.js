@@ -72,7 +72,7 @@ export default () => {
     if (validationError){
       otherErrorOutput.innerHTML = validationError;
     } else {
-      const auth = getAuth(app);
+      // const auth = getAuth(app);
       createUserWithEmailAndPassword(auth, email.value, password.value)
         .then((userCredential) => {
           // Signed in

@@ -1,5 +1,5 @@
 /* eslint-disable import/no-unresolved */
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js';
+import { initializeApp, getFirestore } from './exports.js';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyB-5Rzb3sQFADnF3ScoTuxqRzkNCTgoSOw',
@@ -11,3 +11,5 @@ const firebaseConfig = {
 };
 
 export const app = initializeApp(firebaseConfig);
+export const firestore = getFirestore(app); 
+// firestore = db na documentação do firebase.
