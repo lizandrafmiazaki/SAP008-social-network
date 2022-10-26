@@ -1,10 +1,4 @@
-// import app from '../../lib/config-firebase.js';
-
-// import {
-//   getAuth,
-//   createUserWithEmailAndPassword
-// } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js';
-
+import { createNewUser } from '../../lib/firebase-auth.js';
 import { errorMessages } from '../../lib/erros.js';
 import { signupValidation } from '../../lib/validation.js';
 
@@ -72,29 +66,23 @@ export default () => {
     if (validationError){
       otherErrorOutput.innerHTML = validationError;
     } else {
-      // const auth = getAuth(app);
-      createUserWithEmailAndPassword(auth, email.value, password.value)
+      createNewUser(email.value, password.value)
         .then((userCredential) => {
-          // Signed in
           const user = userCredential.user;
           window.location.hash = '#homepage';
           console.log(user);
-          // ...
         })
         .catch((error) => {
           errorOutput.innerHTML = errorMessages(error);
-          
-  
-          // ..
         });
     }
 
     //testando:
-    console.log('submit');
-    console.log(email.value);
-    console.log(password.value);
-    console.log(inputName.value);
-    console.log(inputUsername.value);
+    // console.log('submit');
+    // console.log(email.value);
+    // console.log(password.value);
+    // console.log(inputName.value);
+    // console.log(inputUsername.value);
   });
 
   return container;
