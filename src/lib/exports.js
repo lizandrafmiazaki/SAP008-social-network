@@ -10,4 +10,6 @@ export {
   signOut,
 } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js';
 
-// export { getFirestore, collection, addDoc, doc, getDoc, getDocs, updateDoc, deletDoc, } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js';
+export { getFirestore, collection, addDoc, } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js';
+
+//export { getFirestore, collection, addDoc, doc, getDoc, getDocs, updateDoc, deletDoc, } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js';
