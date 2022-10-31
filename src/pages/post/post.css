@@ -31,3 +31,8 @@
   display: block;
   text-align: center;
 }
+
+.output-post{
+  position: absolute;
+  margin: 1000px 0 0 100px;
+}

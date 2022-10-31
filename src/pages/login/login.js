@@ -27,6 +27,8 @@ export default () => {
           <hr>
           <a href= "/#signup"><button class="btn" id="btn-register">Clique aqui para se cadastrar</button></a> 
 
+          <a href= "/#post"><button>ATALHO</button></a> 
+
     </section>
     `;
   container.innerHTML = template;
