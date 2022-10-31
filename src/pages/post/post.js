@@ -1,3 +1,6 @@
+import { createPost } from "../../lib/firestore.js";
+// import { getAuth } from "../../lib/exports.js";
+
 export default () => {
   const container = document.createElement('div');
 
@@ -17,7 +20,8 @@ export default () => {
           Postar
         </button>
       </form>
-      <p class="output-post">SAÍDA</p>
+      <!-- <p class="output-post">SAÍDA</p> --> 
+      <p class="output-test">TESTANDO</p>
 
           <img class="icon" id="to-top" src="./img/to-top.png" alt="icone de voltar ao topo">
     </div>
@@ -57,16 +61,17 @@ export default () => {
 
   const postBtn = container.querySelector('#btn-post');
   const contentPost = container.querySelector('.typing-area');
-  const outputPost = container.querySelector('.output-post');
+  // const outputPost = container.querySelector('.output-post');
+  const outputTest = container.querySelector('.output-test')
   
   postBtn.addEventListener('click', (e) => {
     e.preventDefault();
-    console.log(contentPost.value);
-
-    return outputPost.innerHTML = contentPost.value;
-
+    //console.log(contentPost.value);
+    createPost(contentPost.value);
+    
+    // return outputPost.innerHTML = contentPost.value;
+    return outputTest.innerHTML = contentPost.value;
   });
-
   return container;
 };
 

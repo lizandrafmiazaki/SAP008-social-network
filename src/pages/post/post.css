@@ -32,7 +32,12 @@
   text-align: center;
 }
 
-.output-post{
+.output-post {
   position: absolute;
-  margin: 1000px 0 0 100px;
+  margin: 1100px 0 0 100px;
+}
+
+.output-test {
+  position: absolute;
+  margin: 1100px 0 0 180px;
 }
