@@ -12,13 +12,12 @@ export default () => {
       <p class="name-user">@username</p>
       <p class="control-text">PÁGINA PARA ADICIONAR POST</p>
       <form class="form-text">
-        <textarea class="typing-area">
-          Clique aqui para inserir seu texto
-        </textarea>
+        <input type="text" class="typing-area">
         <button class="btn" id="btn-post">
           Postar
         </button>
       </form>
+      <p class="output-post">SAÍDA</p>
 
           <img class="icon" id="to-top" src="./img/to-top.png" alt="icone de voltar ao topo">
     </div>
@@ -55,5 +54,19 @@ export default () => {
     </footer>
   </section>`;
   container.innerHTML = template;
+
+  const postBtn = container.querySelector('#btn-post');
+  const contentPost = container.querySelector('.typing-area');
+  const outputPost = container.querySelector('.output-post');
+  
+  postBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    console.log(contentPost.value);
+
+    return outputPost.innerHTML = contentPost.value;
+
+  });
+
   return container;
 };
+
