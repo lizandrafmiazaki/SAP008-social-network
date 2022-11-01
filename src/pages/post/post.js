@@ -1,5 +1,6 @@
-import { createPost } from "../../lib/firestore.js";
+import { createPost, getPost, updatePost } from '../../lib/firestore.js';
 // import { getAuth } from "../../lib/exports.js";
+import { logout } from '../../lib/firebase-auth.js';
 
 export default () => {
   const container = document.createElement('div');
@@ -44,9 +45,7 @@ export default () => {
             </a>
           </li>
           <li>
-            <a href="/#">
             <img class="icon" id="icon-exit" src="./img/icon-exit.png" alt="icone de sair">
-            </a>
           </li>
           <li>
             <a href="/#inform">
@@ -61,17 +60,28 @@ export default () => {
 
   const postBtn = container.querySelector('#btn-post');
   const contentPost = container.querySelector('.typing-area');
+  const outputTest = container.querySelector('.output-test');
+
   // const outputPost = container.querySelector('.output-post');
-  const outputTest = container.querySelector('.output-test')
-  
+
   postBtn.addEventListener('click', (e) => {
     e.preventDefault();
-    //console.log(contentPost.value);
     createPost(contentPost.value);
-    
-    // return outputPost.innerHTML = contentPost.value;
-    return outputTest.innerHTML = contentPost.value;
+    getPost();
+    updatePost();
+    console.log(getPost());
+    console.log(updatePost());
+    return (outputTest.innerHTML = contentPost.value);
   });
+
+  // => Botão de sair:
+  const btnLogout = container.querySelector('#icon-exit');
+
+  btnLogout.addEventListener('click', (e) => {
+    e.preventDefault();
+    logout();
+    window.location.hash = ' ';
+  });
+
   return container;
 };
-

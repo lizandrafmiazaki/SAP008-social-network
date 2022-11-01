@@ -18,7 +18,7 @@ export default () => {
     <nav>
       <ul>
         <li>
-          <a href="/#homepage">
+          <a href="/#post">
             <img class="icon" id="icon-home" src="./img/icon-homepage.png" alt="icone de homepage">
           </a>
         </li>

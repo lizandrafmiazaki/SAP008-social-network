@@ -1,3 +1,168 @@
+/* CSS DA ANTIGA HOMEPAGE, PRECISANDO DE AJUSTES */
+/* ZERANDO AS CONFIGURAÇÕES PADRÕES E APLICANDO DEGRADÊ: */
+body {
+  margin: 0;
+  padding: 0;
+  background-image: linear-gradient(
+    140deg,
+    #b9c0fc,
+    #d7b2f2,
+    #ab9cf2,
+    #ab9bf6,
+    #ecbff4
+  );
+  background-attachment: fixed;
+  text-align: center;
+}
+
+/* ===> MODELO FIRST MOBILE <=== */
+
+/* HEADER */
+header {
+  position: absolute;
+  width: 100%;
+  height: 60px;
+  left: 0px;
+  top: 0px;
+  background: #ffcbed;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* BOTÕES */
+
+/* IMAGEM DE USUÁRIO */
+.photo-user {
+  position: absolute;
+  width: 27px;
+  height: 27px;
+  left: 14px;
+  top: 78px;
+}
+
+.name-user {
+  position: absolute;
+  width: 95px;
+  height: 15px;
+  left: 37px;
+  top: 70px;
+  font-family: "Life Savers";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 12px;
+  line-height: 15px;
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: #5d2963;
+  text-shadow: 0px 4px 4px rgba(255, 255, 255, 0.2);
+}
+
+/* LOGO */
+.logo {
+  margin-top: 15px;
+  width: 6rem;
+}
+
+/* TÍTULO */
+/* h1,
+.label,
+.btn {
+  color: #5d2963;
+  font-family: "Life Savers", cursiva;
+  font-weight: 800;
+} */
+
+/* FORMS, INPUTS E LABELS */
+form {
+  text-align: start;
+}
+
+.input {
+  width: 260px;
+  height: 30px;
+  background: #ffcbed;
+  border-radius: 6px;
+  border: #5d2963 solid 2px;
+  margin: 0.5em 0;
+  margin-bottom: 1em;
+}
+
+/* FOOTER */
+footer {
+  /* cor e posição */
+  position: fixed;
+  width: 100%;
+  height: 60px;
+  left: 0px;
+  bottom: 0px;
+  background: #ffcbed;
+  box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.25);
+
+  /* conteúdo do footer */
+
+}
+
+ul {
+    display: flex;
+}
+
+li {
+  margin: 6px 10px;
+  list-style-type: none;
+}
+
+/* ÍCONES DO FOOTER */
+
+.icon {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+#icon-home{
+  left: 10px;
+}
+
+#icon-add {
+  left: 90px;
+}
+
+#icon-info {
+  left: 170px;
+}
+
+#icon-exit {
+  left: 250px;
+}
+
+#icon-settings{
+  left: 330px;
+}
+
+#to-top{
+  position: fixed;
+  bottom: 10%;
+  right: 3%;
+}
+
+/* APAGAR DEPOIS => USADO APENAS PARA CONTROLE */
+.control-text{
+    position: absolute;
+    width: 95px;
+    height: 15px;
+    left: 130px;
+    top: 170px;
+    font-family: "Life Savers";
+    font-style: normal;
+    font-weight: 800;
+    font-size: 12px;
+    line-height: 15px;
+    text-align: center;
+    letter-spacing: 0.02em;
+    color: #5d2963;
+    text-shadow: 0px 4px 4px rgba(255, 255, 255, 0.2);
+}
+/* ---- */
+
 .container {
   display: flex;
   align-items: center;

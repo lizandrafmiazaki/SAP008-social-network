@@ -69,7 +69,7 @@ export default () => {
       createNewUser(email.value, password.value)
         .then((userCredential) => {
           const user = userCredential.user;
-          window.location.hash = '#homepage';
+          window.location.hash = '#post';
           console.log(user);
         })
         .catch((error) => {
