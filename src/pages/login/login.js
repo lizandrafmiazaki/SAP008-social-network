@@ -56,7 +56,7 @@ export default () => {
         .then((userCredential) => {
           const user = userCredential.user;
           console.log(user);
-          window.location.hash = '#homepage';
+          window.location.hash = '#post';
         })
         .catch((error) => {
           errorOutput.innerHTML = errorMessages(error);
@@ -73,7 +73,7 @@ export default () => {
     e.preventDefault();
     loginWithGoogle()
       .then(() => {
-        window.location.hash = '#homepage';
+        window.location.hash = '#post';
       })
       .catch((error) => {
         errorOutput.innerHTML = errorMessages(error);
