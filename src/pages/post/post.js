@@ -65,14 +65,12 @@ export default () => {
 
   const printPost = async () => {
     const arrayPost = await getPost();
-    const postTemplate = arrayPost
-      .map(
-        (post) => `
+    const postTemplate = arrayPost.map((post) => `
       <div class="post">
         <div class="div-photo-user">
           <img src="../../img/user.png" class="photo-user" alt="foto de usuário">
           <p class="username">${post.name}</p>
-        </div>        
+      </div>        
         <textarea
          class="area-post"
           data-post="${post.id}" id="text-post" disabled>${post.text}
@@ -96,9 +94,7 @@ export default () => {
         
 
       </div>
-    `,
-      )
-      .join('');
+    `).join('');
     container.querySelector('.container-post').innerHTML = postTemplate;
   };
 
