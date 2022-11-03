@@ -1,4 +1,3 @@
-/* eslint-disable indent */
 import { createPost } from '../../lib/firestore.js';
 // import { getAuth } from "../../lib/exports.js";
 import { logout } from '../../lib/firebase-auth.js';
@@ -23,8 +22,7 @@ export default () => {
             Postar
           </button>
         </form>
-        <!-- <p class="output-post">SAÍDA</p> --> 
-        <p class="output-test">TESTANDO</p>
+        <p class="output-alert"></p>
             <img class="icon" id="to-top" src="./img/to-top.png" alt="icone de voltar ao topo">
       </div>
 
@@ -65,17 +63,19 @@ export default () => {
   // => Criação e post e saidas
   const postBtn = container.querySelector('#btn-post');
   const contentPost = container.querySelector('.typing-area');
-  const outputTest = container.querySelector('.output-test');
+  const outputAlert = container.querySelector('.output-alert');
 
   // const outputPost = container.querySelector('.output-post');
 
   postBtn.addEventListener('click', (e) => {
     e.preventDefault();
     
-    if (contentPost != '') {
-    createPost(contentPost.value);
-    window.location.hash = '#post';
-} return outputTest.innerHTML = "Por favor, escreva seu post";
+    if (contentPost.value === '') {
+      outputAlert.innerHTML = "Por favor, escreva seu post";
+    } else {
+      createPost(contentPost.value);
+      window.location.hash = '#post';
+    }
   });
 
   // => Botão de sair:
