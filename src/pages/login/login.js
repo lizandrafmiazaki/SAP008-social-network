@@ -28,6 +28,7 @@ export default () => {
           <a href= "/#signup"><button class="btn" id="btn-register">Clique aqui para se cadastrar</button></a> 
 
           <a href= "/#post"><button>ATALHO</button></a> 
+          <a href= "/#add"><button>ATALHO 2</button></a> 
 
     </section>
     `;
