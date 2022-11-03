@@ -6,29 +6,30 @@ import { auth, logout } from '../../lib/firebase-auth.js';
 export default () => {
   const container = document.createElement('div');
 
-  const template = `    <section class="container-post">
-    <header>
-    <img class= "logo" id= "logo" src="./img/logo.png" alt="logo">
-    </header>
-    <div class="container">
-      <figure class="">
-        <img class="photo-user" id="photo-user" src="./img/user.png" alt="imagem do usuário">
-      </figure>
-      <p class="name-user">@username</p>
-      <p class="control-text">PÁGINA PARA ADICIONAR POST</p>
-      <form class="form-text">
-        <input type="text" class="typing-area">
-        <button class="btn" id="btn-post">
-          Postar
-        </button>
-      </form>
-      <!-- <p class="output-post">SAÍDA</p> --> 
-      <p class="output-test">TESTANDO</p>
-
-          <img class="icon" id="to-top" src="./img/to-top.png" alt="icone de voltar ao topo">
-    </div>
-
+  const template = `
     <section class="container-post">
+      <header>
+        <img class= "logo" id= "logo" src="./img/logo.png" alt="logo">
+      </header>
+      <div class="container">
+        <figure class="">
+          <img class="photo-user" id="photo-user" src="./img/user.png" alt="imagem do usuário">
+        </figure>
+        <p class="name-user">@username</p>
+        <p class="control-text">PÁGINA PARA ADICIONAR POST</p>
+        <form class="form-text">
+          <input type="text" class="typing-area">
+          <button class="btn" id="btn-post">
+            Postar
+          </button>
+        </form>
+        <!-- <p class="output-post">SAÍDA</p> --> 
+        <p class="output-test">TESTANDO</p>
+
+            <img class="icon" id="to-top" src="./img/to-top.png" alt="icone de voltar ao topo">
+      </div>
+
+      <section class="container-post">
     </section>
 
     <footer>
