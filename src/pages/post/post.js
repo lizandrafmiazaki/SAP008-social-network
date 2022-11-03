@@ -1,15 +1,14 @@
 /* eslint-disable indent */
-import { createPost, getPost } from '../../lib/firestore.js';
-// import { getAuth } from "../../lib/exports.js";
-import { auth, logout } from '../../lib/firebase-auth.js';
+import { getPost, editPost } from '../../lib/firestore.js';
+import { auth } from '../../lib/firebase-auth.js';
+// import { auth, logout } from '../../lib/firebase-auth.js';
 
 export default () => {
   const container = document.createElement('div');
-
   const printPost = async () => {
-    const arrayPost = await getPost();
-    const postTemplate = arrayPost.map((post) => `
-    <section class="container-post">
+    const dataPost = await getPost();
+    const postTemplate = dataPost.map ((post) => `
+      <section class="container-post">
         <header>
           <img class= "logo" id= "logo" src="./img/logo.png" alt="logo">
         </header>
@@ -20,18 +19,22 @@ export default () => {
           <div class="div-photo-user">
             <img src="../../img/user.png" class="photo-user" alt="foto de usuário">
             <p class="username">${post.name}</p>
-          </div>        
+          </div>
+
           <textarea class="area-post" data-post="${post.id}" id="text-post" disabled>${post.text}
           </textarea>
+
           <div ${post.author === auth.currentUser.uid ? 'class="post-btn" ' : 'class="post-btn hide"'}>
+
+ 
 
             <button class="btn-edits edit" data-id-post-edit="${post.id}" id="btnEdit" type="button">Editar</button>
 
             <button class="btn-edits save hide" data-save="${post.id}"id="btnSave" type="button">Salvar</button>  
             
             <button data-id-post-delete="${post.id}" class="btn-edits delete" id="btnDelete">Excluir</button>
-          </div> 
-
+          </div>
+           
           <div data-confirmation-options="${post.id}" class="confimation-delete hide">
             <p class="confirmation-text">Você deseja excluir essa publicação permanentemente?</p>
             <button class="btn-post confirm" id="btnConfirmDelete" data-confirmation-delete="${post.id}" type="button">Sim</button>
@@ -69,7 +72,7 @@ export default () => {
         </nav>
         </footer>
       </section>
-      `).join('');
+    `).join('');
     container.innerHTML = postTemplate;
   };
 

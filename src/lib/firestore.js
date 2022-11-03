@@ -1,4 +1,4 @@
-import { getAuth, collection, addDoc, getDocs, doc } from './exports.js';
+import { getAuth, collection, addDoc, getDocs, doc, updateDoc } from './exports.js';
 //import { getFirestore, collection, addDoc, doc, getDoc, getDocs, updateDoc, deletDoc, } from './exports.js';
 
 import { app, firestore } from './config-firebase.js';
@@ -38,11 +38,11 @@ export const getPost = async () => {
   }
 };
 
-// Sobe o post
-// export const updatePost = async (userId, contentPost) => {
-//   const newPost = doc(firestore, 'post', userId);
+// editar o post
+export const editPost = async (userId, contentPost) => {
+  const editedPost = doc(firestore, 'post', userId);
 
-//   await updateDoc(newPost, {
-//     texto: contentPost,
-//   });
-// };
+  await updateDoc(editedPost, {
+    text: contentPost,
+  });
+};
