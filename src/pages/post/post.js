@@ -1,52 +1,48 @@
 /* eslint-disable indent */
 import { getPost, editPost, deletePost, likePost } from '../../lib/firestore.js';
-import { auth } from '../../lib/firebase-auth.js';
+import { getAuth } from '../../lib/exports.js';
+import { app } from '../../lib/config-firebase.js';
+
+const auth = getAuth(app);
+console.log (auth);
+
+// import { auth } from '../../lib/firebase-auth.js';
 // import { auth, logout } from '../../lib/firebase-auth.js';
 
 export default () => {
-  const container = document.createElement('div');
-  const printPost = async () => {
-    const dataPost = await getPost();
-    const postTemplate = dataPost.map ((post) => `
-      <section class="container-post">
-        <header>
-          <img class= "logo" id= "logo" src="./img/logo.png" alt="logo">
-        </header>
-        <div class="container">
-          <figure class="">
-            <img class="photo-user" id="photo-user" src="./img/user.png" alt="imagem do usuário">
-          </figure>
-          <div class="div-photo-user">
-            <img src="../../img/user.png" class="photo-user" alt="foto de usuário">
-            <p class="username">${post.name}</p>
-          </div>
+const container = document.createElement('div');
+const printPost = async () => {
+  const dataPost = await getPost();
+  const postTemplate = dataPost.map((post) => `
+    <section class="container-post">
+    <header>
+      <img class= "logo" id= "logo" src="./img/logo.png" alt="logo">
+    </header>
+    <div class="container">
+      <figure class="">
+        <img class="photo-user" id="photo-user" src="./img/user.png" alt="imagem do usuário">
+      </figure>      
+        <p class="username">${post.name}</p>     
+      
+      <textarea class="postTxt txtArea" data-post="${post.id}" id="text-post" disabled>${post.text}</textarea>
 
-          <textarea class="area-post" data-post="${post.id}" id="text-post" disabled>${post.text}
-          </textarea>
+      <div id="bts-edition">
+        <button class="btn-post edit" data-id-post-edit="${post.id}" id="btnEdit" type="button">Editar</button>
+        <button class="btn-post save" data-save="${post.id}"id="btnSave" type="button">Salvar</button>  
+        <button data-id-post-delete="${post.id}" class="btn-post delete" id="btnDelete">Excluir</button>
+      </div>
 
-          <div ${post.author === auth.currentUser.uid ? 'class="post-btn" ' : 'class="post-btn hide"'}>
-
- 
-
-            <button class="btn-edits edit" data-id-post-edit="${post.id}" id="btnEdit" type="button">Editar</button>
-
-            <button class="btn-edits save hide" data-save="${post.id}"id="btnSave" type="button">Salvar</button>  
-            
-            <button data-id-post-delete="${post.id}" class="btn-edits delete" id="btnDelete">Excluir</button>
-          </div>
-           
-          <div data-confirmation-options="${post.id}" class="confimation-delete hide">
-            <p class="confirmation-text">Você deseja excluir essa publicação permanentemente?</p>
-            <button class="btn-post confirm" id="btnConfirmDelete" data-confirmation-delete="${post.id}" type="button">Sim</button>
-            <button class="btn-post confirm" data-decline-delete="${post.id}" type="button">Não</button>
-          </div>
-
-          <button id="btnLike" class="btn-like like " data-count-likes="${post.like.length}" data-like-btn="${post.id}" type="button">
-          <img class="heart-icon" ${post.like.includes(auth.currentUser.uid) ? 'src="img/full-heart.png"' : 'src="img/empty-heart.png"'} alt="purple-heart"> 
-          </button> 
-        </div>
-
-        <footer>
+      <div data-confirmation-options="${post.id}" class="confimation-delete hide">
+        <p class="confirmation-text">Você deseja excluir essa publicação permanentemente?</p>
+        <button class="btn-post confirm" id="btnConfirmDelete" data-confirmation-delete="${post.id}" type="button">Sim</button>
+        <button class="btn-post confirm" data-decline-delete="${post.id}" type="button">Não</button>
+      </div>
+      
+      <button id="btnLike" class="btn-like like " data-count-likes="${post.like.length}" data-like-btn="${post.id}" type="button">
+      <img class="heart-icon" ${post.like.includes(auth.currentUser.uid) ? 'src="img/full-heart.png"' : 'src="img/empty-heart.png"'} alt="purple-heart"> 
+      </button> 
+    </div>
+    <footer>
         <nav>
           <ul>
             <li>
@@ -76,9 +72,24 @@ export default () => {
         </nav>
         </footer>
       </section>
-    `).join('');
-    container.innerHTML = postTemplate;
-  };
+  `).join('');
+  container.innerHTML = postTemplate;
+  
+  // TENTANDO - INICIO
+  const divEdition = container.querySelector('.bts-edition');
+  
+  addEventListener("load", (e) => {
+    e.preventDefault();
+    if(post.author === auth.currentUser.uid) {
+      divEdition.style.display = "block"
+    } else {
+      divEdition.style.display = "none"
+    }
+  });
+
+  
+    // TENTANDO - FIM
+
 
   // => Inicio ---------------------
 
@@ -89,6 +100,8 @@ export default () => {
     btnsEdit.forEach((btn) => {
       btn.addEventListener('click', (e) => {
         const postToBeEdited = e.currentTarget.dataset.idPostEdit;
+        console.log(e);
+        console.log(postToBeEdited);
         const txtPost = container.querySelector(`[data-post="${postToBeEdited}"]`);
         const dataSave = container.querySelector(`[data-save="${postToBeEdited}"]`);
         const btnEdit = container.querySelector(`[data-id-post-edit="${postToBeEdited}"]`);
@@ -112,6 +125,7 @@ export default () => {
     btnsDelete.forEach((btn) => {
       btn.addEventListener('click', (e) => {
         const postToBeDeleted = e.currentTarget.dataset.idPostDelete;
+        console.log(postToBeDeleted);
         const btnDelete = container.querySelector(`[data-id-post-delete="${postToBeDeleted}"]`);
         const confirmationOptions = container.querySelector(`[data-confirmation-options="${postToBeDeleted}"]`);
         const btnConfirmDelete = container.querySelector(`[data-confirmation-delete="${postToBeDeleted}"]`);
@@ -124,7 +138,7 @@ export default () => {
 
         btnConfirmDelete.addEventListener('click', async () => {
           await deletePost(postToBeDeleted);
-          window.location.reload();
+          window.location.hash = '#post';
         });
 
         btnDeclineDelete.addEventListener('click', () => {
@@ -154,7 +168,7 @@ export default () => {
           });
       });
     });
-
+  }
   // => Fim ---------------------
 
   // => Botão de sair:
@@ -168,4 +182,4 @@ export default () => {
 
   printPost();
   return container;
-};
+}
