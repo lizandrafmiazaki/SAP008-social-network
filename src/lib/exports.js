@@ -1,4 +1,3 @@
-/* eslint-disable spaced-comment */
 /* eslint-disable import/no-unresolved */
 export { initializeApp } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js';
 
@@ -18,6 +17,6 @@ export {
   getDocs,
   doc,
   updateDoc,
+  deleteDoc,
+  getDoc,
 } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js';
-
-//export { deletDoc } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js';

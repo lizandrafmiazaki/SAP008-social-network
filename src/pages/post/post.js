@@ -1,5 +1,5 @@
 /* eslint-disable indent */
-import { getPost, editPost } from '../../lib/firestore.js';
+import { getPost, editPost, deletePost, likePost } from '../../lib/firestore.js';
 import { auth } from '../../lib/firebase-auth.js';
 // import { auth, logout } from '../../lib/firebase-auth.js';
 
@@ -40,6 +40,10 @@ export default () => {
             <button class="btn-post confirm" id="btnConfirmDelete" data-confirmation-delete="${post.id}" type="button">Sim</button>
             <button class="btn-post confirm" data-decline-delete="${post.id}" type="button">Não</button>
           </div>
+
+          <button id="btnLike" class="btn-like like " data-count-likes="${post.like.length}" data-like-btn="${post.id}" type="button">
+          <img class="heart-icon" ${post.like.includes(auth.currentUser.uid) ? 'src="img/full-heart.png"' : 'src="img/empty-heart.png"'} alt="purple-heart"> 
+          </button> 
         </div>
 
         <footer>
@@ -75,6 +79,83 @@ export default () => {
     `).join('');
     container.innerHTML = postTemplate;
   };
+
+  // => Inicio ---------------------
+
+  const btnsEdit = Array.from(container.querySelectorAll('#btnEdit'));
+    const btnsDelete = Array.from(container.querySelectorAll('#btnDelete'));
+    const btnsLike = Array.from(container.querySelectorAll('#btnLike'));
+
+    btnsEdit.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        const postToBeEdited = e.currentTarget.dataset.idPostEdit;
+        const txtPost = container.querySelector(`[data-post="${postToBeEdited}"]`);
+        const dataSave = container.querySelector(`[data-save="${postToBeEdited}"]`);
+        const btnEdit = container.querySelector(`[data-id-post-edit="${postToBeEdited}"]`);
+        const btnDelete = container.querySelector(`[data-id-post-delete="${postToBeEdited}"]`);
+
+        txtPost.removeAttribute('disabled');
+        dataSave.classList.remove('hide');
+        btnEdit.classList.add('hide');
+        btnDelete.classList.add('hide');
+
+        dataSave.addEventListener('click', async () => {
+          await editPost(postToBeEdited, txtPost.value);
+          txtPost.setAttribute('disabled', '');
+          dataSave.classList.add('hide');
+          btnEdit.classList.remove('hide');
+          btnDelete.classList.remove('hide');
+        });
+      });
+    });
+
+    btnsDelete.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        const postToBeDeleted = e.currentTarget.dataset.idPostDelete;
+        const btnDelete = container.querySelector(`[data-id-post-delete="${postToBeDeleted}"]`);
+        const confirmationOptions = container.querySelector(`[data-confirmation-options="${postToBeDeleted}"]`);
+        const btnConfirmDelete = container.querySelector(`[data-confirmation-delete="${postToBeDeleted}"]`);
+        const btnDeclineDelete = container.querySelector(`[data-decline-delete="${postToBeDeleted}"]`);
+        const btnEdit = container.querySelector(`[data-id-post-edit="${postToBeDeleted}"]`);
+
+        btnEdit.classList.add('hide');
+        btnDelete.classList.add('hide');
+        confirmationOptions.classList.remove('hide');
+
+        btnConfirmDelete.addEventListener('click', async () => {
+          await deletePost(postToBeDeleted);
+          window.location.reload();
+        });
+
+        btnDeclineDelete.addEventListener('click', () => {
+          confirmationOptions.classList.add('hide');
+          btnDelete.classList.remove('hide');
+          btnEdit.classList.remove('hide');
+        });
+      });
+    });
+
+    btnsLike.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        const elemento = e.currentTarget;
+        const postLikedId = elemento.dataset.likeBtn;
+        const user = auth.currentUser.uid;
+        const img = e.target;
+
+        likePost(postLikedId, user)
+          .then((resultado) => {
+            if (resultado.liked === true) {
+              img.setAttribute('src', './img/full-heart.png');
+            } else {
+              img.setAttribute('src', './img/empty-heart.png');
+            }
+
+            elemento.dataset.countLikes = resultado.count;
+          });
+      });
+    });
+
+  // => Fim ---------------------
 
   // => Botão de sair:
   // const btnLogout = container.querySelector('#icon-exit');

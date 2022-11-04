@@ -1,5 +1,6 @@
-import { getAuth, collection, addDoc, getDocs, doc, updateDoc } from './exports.js';
-//import { getFirestore, collection, addDoc, doc, getDoc, getDocs, updateDoc, deletDoc, } from './exports.js';
+import {
+  getAuth, collection, addDoc, getDocs, doc, updateDoc, deleteDoc, getDoc,
+} from './exports.js';
 
 import { app, firestore } from './config-firebase.js';
 
@@ -45,4 +46,40 @@ export const editPost = async (userId, contentPost) => {
   await updateDoc(editedPost, {
     text: contentPost,
   });
+};
+
+// Editar daqui pra baixo
+export const deletePost = async (userId) => {
+  try {
+    const deletedPost = doc(firestore, 'post', userId);
+    await deleteDoc(deletedPost);
+
+    return deletedPost.id;
+  } catch (error) {
+    return error;
+  }
+};
+
+export const getPostById = async (postId) => {
+  const docRef = doc(firestore, 'post', postId);
+  const docSnap = await getDoc(docRef);
+  return docSnap.data();
+};
+
+export const likePost = async (postId, userId) => {
+  const post = await getPostById(postId);
+  let likes = post.like;
+  const likeVerification = !likes.includes(userId);
+
+  if (likeVerification) {
+    likes.push(userId);
+  } else {
+    likes = likes.filter((id) => id !== userId);
+  }
+
+  await updateDoc(doc(firestore, 'post', postId), {
+    like: likes,
+  });
+
+  return { liked: likeVerification, count: likes.length };
 };
