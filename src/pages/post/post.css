@@ -144,6 +144,11 @@ li {
   right: 3%;
 }
 
+#text-post {
+  display: block;
+  width: 100%;
+  padding: 3% 2%;
+}
 /* APAGAR DEPOIS => USADO APENAS PARA CONTROLE */
 .control-text{
     position: absolute;
@@ -205,4 +210,43 @@ li {
 .output-alert {
   position: absolute;
   margin: 1100px 0 0 180px;
+}
+
+.btn-like {
+  background-color: var(--lilas);
+  color: var(--branco);    
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin: 2% 90% 0 0;
+}
+
+.btn-like:hover {
+  cursor: pointer;
+}
+
+.like::after {
+  content:attr(data-count-likes);
+}
+
+.heart-icon {
+  width: 60%;
+}
+
+.confimation-delete {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;    
+}
+
+.confirm {
+  margin: 0 2% 0;
+}
+
+.hide {
+  display:none;
 }
