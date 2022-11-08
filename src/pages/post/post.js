@@ -26,22 +26,23 @@ const printPost = async () => {
       
       <textarea class="postTxt txtArea" data-post="${post.id}" id="text-post" disabled>${post.text}</textarea>
 
-      <div id="bts-edition">
-        <button class="btn-post edit" data-id-post-edit="${post.id}" id="btnEdit" type="button">Editar</button>
-        <button class="btn-post save" data-save="${post.id}"id="btnSave" type="button">Salvar</button>  
-        <button data-id-post-delete="${post.id}" class="btn-post delete" id="btnDelete">Excluir</button>
-      </div>
+      <<span class="save-alert hide" data-save-alert="${post.id}"></span>
 
+      <div ${post.author === auth.currentUser.uid ? 'class="btns-post-container" ' : 'class="btns-post-container hide"'}>          
+        <button class="btn-post edit" data-id-post-edit="${post.id}" id="btnEdit" type="button">Editar</button>
+        <button class="btn-post save hide" data-save="${post.id}"id="btnSave" type="button">Salvar</button>  
+        <button data-id-post-delete="${post.id}" class="btn-post delete" id="btnDelete">Excluir</button>
+      </div>            
       <div data-confirmation-options="${post.id}" class="confimation-delete hide">
-        <p class="confirmation-text">Você deseja excluir essa publicação permanentemente?</p>
+        <span class="confirmation-text">Você deseja excluir essa publicação permanentemente?</span>
         <button class="btn-post confirm" id="btnConfirmDelete" data-confirmation-delete="${post.id}" type="button">Sim</button>
         <button class="btn-post confirm" data-decline-delete="${post.id}" type="button">Não</button>
       </div>
-      
       <button id="btnLike" class="btn-like like " data-count-likes="${post.like.length}" data-like-btn="${post.id}" type="button">
       <img class="heart-icon" ${post.like.includes(auth.currentUser.uid) ? 'src="img/full-heart.png"' : 'src="img/empty-heart.png"'} alt="purple-heart"> 
       </button> 
-    </div>
+    </form>
+
     <footer>
         <nav>
           <ul>
@@ -76,18 +77,7 @@ const printPost = async () => {
   container.innerHTML = postTemplate;
   
   // TENTANDO - INICIO
-  const divEdition = container.querySelector('.bts-edition');
-  
-  addEventListener("load", (e) => {
-    e.preventDefault();
-    if(post.author === auth.currentUser.uid) {
-      divEdition.style.display = "block"
-    } else {
-      divEdition.style.display = "none"
-    }
-  });
-
-  
+    
     // TENTANDO - FIM
 
 
@@ -138,7 +128,7 @@ const printPost = async () => {
 
         btnConfirmDelete.addEventListener('click', async () => {
           await deletePost(postToBeDeleted);
-          window.location.hash = '#post';
+          window.location.reload();
         });
 
         btnDeclineDelete.addEventListener('click', () => {
