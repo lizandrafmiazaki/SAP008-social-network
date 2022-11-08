@@ -47,7 +47,7 @@ const printPost = async () => {
         <nav>
           <ul>
             <li>
-              <a href="/#homepage">
+              <a href="/#post">
                 <img class="icon" id="icon-home" src="./img/icon-homepage.png" alt="icone de homepage">
               </a>
             </li>
@@ -75,11 +75,6 @@ const printPost = async () => {
       </section>
   `).join('');
   container.innerHTML = postTemplate;
-  
-  // TENTANDO - INICIO
-    
-    // TENTANDO - FIM
-
 
   // => Inicio ---------------------
 
