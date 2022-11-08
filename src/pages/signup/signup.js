@@ -62,8 +62,7 @@ export default () => {
       password.value
     );
 
-
-    if (validationError){
+    if (validationError) {
       otherErrorOutput.innerHTML = validationError;
     } else {
       createNewUser(email.value, password.value)
@@ -77,7 +76,7 @@ export default () => {
         });
     }
 
-    //testando:
+    // testando:
     // console.log('submit');
     // console.log(email.value);
     // console.log(password.value);
@@ -87,4 +86,3 @@ export default () => {
 
   return container;
 };
-

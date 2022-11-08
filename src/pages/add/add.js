@@ -1,6 +1,8 @@
+/* eslint-disable indent */
 import { createPost } from '../../lib/firestore.js';
 // import { getAuth } from "../../lib/exports.js";
 import { logout } from '../../lib/firebase-auth.js';
+import { auth } from '../../lib/firebase-auth.js'
 
 export default () => {
   const container = document.createElement('div');
@@ -14,8 +16,8 @@ export default () => {
         <figure class="">
           <img class="photo-user" id="photo-user" src="./img/user.png" alt="imagem do usuário">
         </figure>
-        <p class="name-user">@username</p>
-        <p class="control-text">ESSA É A NOVA PÁGINA DE ADICIONAR POSTT</p>
+        <p class="name-user">${auth.currentUser.displayName}</p>
+        <p class="control-text">Digite abaixo o que deseja postar</p>
         <form class="form-text">
           <input type="text" class="typing-area">
           <button class="btn" id="btn-post">
@@ -30,7 +32,7 @@ export default () => {
       <nav>
         <ul>
           <li>
-            <a href="/#homepage">
+            <a href="/#post">
               <img class="icon" id="icon-home" src="./img/icon-homepage.png" alt="icone de homepage">
             </a>
           </li>
@@ -58,7 +60,7 @@ export default () => {
   </section>`;
   container.innerHTML = template;
 
-
+  console.log(auth.currentUser.displayName);
 
   // => Criação e post e saidas
   const postBtn = container.querySelector('#btn-post');
@@ -69,9 +71,8 @@ export default () => {
 
   postBtn.addEventListener('click', (e) => {
     e.preventDefault();
-    
     if (contentPost.value === '') {
-      outputAlert.innerHTML = "Por favor, escreva seu post";
+      outputAlert.innerHTML = 'Por favor, escreva seu post';
     } else {
       createPost(contentPost.value);
       window.location.hash = '#post';
@@ -86,7 +87,5 @@ export default () => {
     logout();
     window.location.hash = ' ';
   });
-
-
   return container;
 };

@@ -52,7 +52,7 @@ export default () => {
     if (validationLogin) {
       otherErrorOutput.innerHTML = validationLogin;
     } else {
-      //=> ENTRADA DA NOVA FUNÇÃO DE NOVO USUÁRIO
+      // => ENTRADA DA NOVA FUNÇÃO DE NOVO USUÁRIO
       loginWithUser(email.value, password.value)
         .then((userCredential) => {
           const user = userCredential.user;
@@ -63,13 +63,12 @@ export default () => {
           errorOutput.innerHTML = errorMessages(error);
         });
     }
-    //testando:
-    //console.log('submit');
-    //console.log(email.value);
-    //console.log(password.value);
+    // testando:
+    // console.log('submit');
+    // console.log(email.value);
+    // console.log(password.value);
   });
 
-  
   btnLoginGoogle.addEventListener('click', (e) => {
     e.preventDefault();
     loginWithGoogle()
@@ -83,4 +82,3 @@ export default () => {
 
   return container;
 };
-
