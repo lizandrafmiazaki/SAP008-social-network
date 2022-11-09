@@ -54,7 +54,7 @@
     text-shadow: 0px 4px 4px rgba(255, 255, 255, 0.2); */
   /* figma-fim */
 
-  font-family: 'Life Savers', cursiva;
+  /* font-family: 'Life Savers', cursiva; */
   font-weight: 800;
   height: 30px;
 }
@@ -120,10 +120,6 @@
 #btnLike {
   background: none;
   border: none;
-}
-
-.container {
-  align-items: center;
 }
 
 #all-content {
