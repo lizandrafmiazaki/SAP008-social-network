@@ -1,18 +1,18 @@
 
-/* ---- */
-
-/* .container {
+.container {
   display: flex;
   align-items: center;
 }
 
-.typing-area {
-  display: block;
-  top: 170px;
+.postTxt {
+  text-align: center;
   background: #ffcbed;
-  width: 290px;
-  height: 182px;
-  margin: 20px;
+  height: 30vw;
+  width: 80%;
+  margin: 2vw;
+  padding: 2vw;
+  border-radius: 20px;
+  border: #5d2963 2px;
 }
 
 #btn-post {
@@ -26,6 +26,37 @@
   border: 1.5px solid #5d2963;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 6px;
+}
+
+.btn-post {
+  margin: 0.1rem;
+
+  /* degrade-btn-test-figma */
+  background: linear-gradient(
+    180deg,
+    rgba(247, 166, 255, 0.79) 6.97%,
+    rgba(247, 166, 255, 0.792214) 6.97%,
+    rgba(176, 123, 245, 0.54) 56.95%,
+    rgba(115, 120, 255, 0.81) 92.41%
+  );
+  border: 1.8px solid #5d2963;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 6px;
+  /* test-figma-fim */
+
+  /* degrade-btn-figma-inicio */
+  /* box-sizing: border-box;
+    background: linear-gradient(180deg, #FECBEC 2%, #FC6CC8 47.92%, #3586bb 100%);
+    background-blend-mode: overlay;
+    border: 1.5px solid #5D2963;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 6px;
+    text-shadow: 0px 4px 4px rgba(255, 255, 255, 0.2); */
+  /* figma-fim */
+
+  font-family: 'Life Savers', cursiva;
+  font-weight: 800;
+  height: 30px;
 }
 
 .form-text {
@@ -78,7 +109,7 @@
 
 .confirm {
   margin: 0 2% 0;
-} */
+}
 
 /* NOVAS CONFIGURAÇÕES */
 
@@ -89,4 +120,13 @@
 #btnLike {
   background: none;
   border: none;
+}
+
+.container {
+  align-items: center;
+}
+
+#all-content {
+  display: block;
+  position: relative;
 }

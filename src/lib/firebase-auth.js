@@ -4,7 +4,7 @@ import {
   signInWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
-  signOut
+  signOut,
 } from './exports.js';
 
 import { app } from './config-firebase.js';
@@ -26,8 +26,8 @@ export async function createNewUser(email, password) {
 
 export async function logout() {
   return signOut(auth);
- }
- 
+}
+
 // export function getUser(){
 //   return auth.currentUser
 // }

@@ -1,27 +1,29 @@
-/* eslint-disable indent */
-import { getPost, editPost, deletePost, likePost } from '../../lib/firestore.js';
+import {
+  getPost, editPost, deletePost, likePost,
+} from '../../lib/firestore.js';
 import { getAuth } from '../../lib/exports.js';
 import { app } from '../../lib/config-firebase.js';
+// import { logout } from '../../lib/firebase-auth.js';
 
 const auth = getAuth(app);
-console.log (auth);
 
 // import { auth } from '../../lib/firebase-auth.js';
 // import { auth, logout } from '../../lib/firebase-auth.js';
 
 export default () => {
-const container = document.createElement('div');
-const printPost = async () => {
-  const dataPost = await getPost();
-  const postTemplate = dataPost.map((post) => `
+  const container = document.createElement('div');
+  const printPost = async () => {
+    const dataPost = await getPost();
+    const postTemplate = dataPost.map((post) => `
     <section class="container-post">
     <header>
       <img class= "logo" id= "logo" src="./img/logo.png" alt="logo">
     </header>
-    <div class="container">
+    
+    <div class="container" id="all-content">
       <figure class="">
         <img class="photo-user" id="photo-user" src="./img/user.png" alt="imagem do usuário">
-      </figure>      
+      </figure>   
         <p class="username">${post.name}</p>     
       
       <textarea class="postTxt txtArea" data-post="${post.id}" id="text-post" disabled>${post.text}</textarea>
@@ -62,7 +64,7 @@ const printPost = async () => {
               </a>
             </li>
             <li>
-              <img class="icon" id="icon-exit" src="./img/icon-exit.png" alt="icone de sair">
+            <img class="icon" id="icon-exit" src="./img/icon-exit.png" alt="icone de sair">
             </li>
             <li>
               <a href="/#inform">
@@ -74,19 +76,15 @@ const printPost = async () => {
         </footer>
       </section>
   `).join('');
-  container.innerHTML = postTemplate;
+    container.innerHTML = postTemplate;
 
-  // => Inicio ---------------------
-
-  const btnsEdit = Array.from(container.querySelectorAll('#btnEdit'));
+    const btnsEdit = Array.from(container.querySelectorAll('#btnEdit'));
     const btnsDelete = Array.from(container.querySelectorAll('#btnDelete'));
     const btnsLike = Array.from(container.querySelectorAll('#btnLike'));
 
     btnsEdit.forEach((btn) => {
       btn.addEventListener('click', (e) => {
         const postToBeEdited = e.currentTarget.dataset.idPostEdit;
-        console.log(e);
-        console.log(postToBeEdited);
         const txtPost = container.querySelector(`[data-post="${postToBeEdited}"]`);
         const dataSave = container.querySelector(`[data-save="${postToBeEdited}"]`);
         const btnEdit = container.querySelector(`[data-id-post-edit="${postToBeEdited}"]`);
@@ -110,7 +108,6 @@ const printPost = async () => {
     btnsDelete.forEach((btn) => {
       btn.addEventListener('click', (e) => {
         const postToBeDeleted = e.currentTarget.dataset.idPostDelete;
-        console.log(postToBeDeleted);
         const btnDelete = container.querySelector(`[data-id-post-delete="${postToBeDeleted}"]`);
         const confirmationOptions = container.querySelector(`[data-confirmation-options="${postToBeDeleted}"]`);
         const btnConfirmDelete = container.querySelector(`[data-confirmation-delete="${postToBeDeleted}"]`);
@@ -148,15 +145,13 @@ const printPost = async () => {
             } else {
               img.setAttribute('src', './img/empty-heart.png');
             }
-
             elemento.dataset.countLikes = resultado.count;
           });
       });
     });
-  }
-  // => Fim ---------------------
+  };
 
-  // => Botão de sair:
+  //  => Botão de sair:
   // const btnLogout = container.querySelector('#icon-exit');
 
   // btnLogout.addEventListener('click', (e) => {
@@ -164,7 +159,6 @@ const printPost = async () => {
   //   logout();
   //   window.location.hash = ' ';
   // });
-
   printPost();
   return container;
-}
+};
