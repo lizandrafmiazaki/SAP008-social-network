@@ -1,15 +1,28 @@
 /* eslint-disable no-undef */
-import { signInWithEmailAndPassword } from '../src/lib/exports.js';
-// import {
-//   signInGoogle, createAccount, loginWithUser, logout,
-// } from '../src/lib/firebase-auth.js';
-// import {
-//   getDocs, getDoc, signInWithPopup, createUserWithEmailAndPassword, signInWithEmailAndPassword,
-//   addDoc, getAuth, updateProfile, updateDoc, deleteDoc, doc, signOut,
-// } from '../src/lib/export.js';
-// import {
-//   createPost, getPost, upDatePost, deletePost, getPostById, likePost,
-// } from '../src/lib/firestore.js';
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  createUserWithEmailAndPassword,
+  signOut,
+  addDoc,
+  getDocs,
+  getDoc,
+  updateDoc,
+  doc,
+} from '../src/lib/exports.js';
+import {
+  loginWithUser,
+  loginWithGoogle,
+  createNewUser,
+  logout,
+} from '../src/lib/firebase-auth.js';
+import {
+  createPost,
+  getPost,
+  editPost,
+  getPostById,
+} from '../src/lib/firestore.js';
 
 jest.mock('../src/lib/exports.js');
 
@@ -17,136 +30,124 @@ jest.mock('../src/lib/exports.js');
 //   jest.clearAllMocks();
 // });
 
-describe('signInWithEmailAndPassword', () => {
-  it(' a função deve logar um usuario utilizando email e senha', () => {
+describe('loginWithUser', () => {
+  it(' a função deve logar um usuário utilizando email e senha', () => {
     signInWithEmailAndPassword.mockResolvedValue({
       email: {},
       password: {},
     });
-    signInWithEmailAndPassword('amandinha@gmail.com', '123456');
+    loginWithUser('amandinha@gmail.com', '123456');
     expect(signInWithEmailAndPassword).toHaveBeenCalledTimes(1);
   });
 });
 
-// describe('createAccount', () => {
-// eslint-disable-next-line max-len
-//   it('a função deve criar uma conta de usuário utilizando o seu nome, email e senha', async () => {
-//     const mockGetAuth = {
-//       currentUser: {},
-//     };
+describe('createNewUser', () => {
+  it('a função deve criar uma conta de usuário utilizando o seu email e senha', () => {
+    createUserWithEmailAndPassword.mockResolvedValueOnce({
+      email: {},
+      password: {},
+    });
+    createNewUser('lizandramiazaki@gmail.com', '@LFmiazaki');
+    expect(createUserWithEmailAndPassword).toHaveBeenCalledTimes(1);
+  });
+});
 
-//     getAuth.mockReturnValueOnce(mockGetAuth);
-//     createUserWithEmailAndPassword.mockResolvedValueOnce();
+describe('loginWithGoogle', () => {
+  it('a função deve logar um usuário utilizando a sua conta do google', () => {
+    signInWithPopup.mockResolvedValue();
+    loginWithGoogle();
+    expect(signInWithPopup).toHaveBeenCalledTimes(1);
+  });
+});
 
-//     const email = 'umnomequalquer@gmail.com';
-//     const password = '12345678';
-//     const name = 'umnomeai';
-//     await createAccount(name, email, password);
+describe('logout', () => {
+  it(' a função deve deslogar o usuário', () => {
+    signOut.mockResolvedValue({
+      user: {},
+    });
+    logout();
+    expect(signOut).toHaveBeenCalledTimes(1);
+  });
+});
 
-//     expect(createUserWithEmailAndPassword).toHaveBeenCalledTimes(1);
-//     expect(createUserWithEmailAndPassword).toHaveBeenCalledWith(mockGetAuth, email, password);
-//     expect(updateProfile).toHaveBeenCalledTimes(1);
-//     expect(updateProfile).toHaveBeenCalledWith(mockGetAuth.currentUser, {
-//       displayName: name,
-//     });
-//   });
-// });
+describe('createPost', () => {
+  it(' a função deve criar um post', async () => {
+    const mockGetAuth = {
+      currentUser: {
+        displayName: 'nome',
+        uid: '123',
+      },
+    };
 
-// describe('signInGoogle', () => {
-//   it('a função deve logar um usuário utilizando a sua conta do google', () => {
-//     signInWithPopup.mockResolvedValue();
-//     signInGoogle();
-//     expect(signInWithPopup).toHaveBeenCalledTimes(1);
-//   });
-// });
+    getAuth.mockReturnValueOnce(mockGetAuth);
+    addDoc.mockResolvedValue();
 
-// describe('logout', () => {
-//   it(' a função deve deslogar o usuario', () => {
-//     signOut.mockResolvedValue({
-//       user: {},
-//     });
-//     logout();
-//     expect(signOut).toHaveBeenCalledTimes(1);
-//   });
-// });
+    const contentPost = 'texto do meu post';
+    await createPost(contentPost);
 
-// describe('createPost', () => {
-//   it(' a função deve criar um post', async () => {
-//     const mockGetAuth = {
-//       currentUser: {
-//         displayName: 'nome',
-//         uid: '123',
-//       },
-//     };
+    expect(addDoc).toHaveBeenCalledTimes(1);
+    expect(addDoc).toHaveBeenCalledWith(undefined, {
+      name: mockGetAuth.currentUser.displayName,
+      author: mockGetAuth.currentUser.uid,
+      text: contentPost,
+      like: [],
+    });
+  });
+});
 
-//     getAuth.mockReturnValueOnce(mockGetAuth);
-//     addDoc.mockResolvedValue();
+describe('getPost', () => {
+  it('a função deve retornar um array com o post a ser printado na tela', () => {
+    getDocs.mockResolvedValue([{
+      author: {},
+      id: {},
+      like: [],
+      name: {},
+      text: {},
+    }]);
+    getPost('x4H2994HPjV9zm6cp7am58XTjci2', '0pRNd4MNFXm3QAI2TYeL', ['J5rtQSlAJqO13E7znQknbvC236U2', 'scbc2YPdX5gnlsKodSzDLh3mpPr2'], 'Amanda', 'Socorro Deus!');
+    expect(getDocs).toHaveBeenCalledTimes(1);
+  });
+});
 
-//     const texto = 'texto do meu post';
-//     await createPost(texto);
+describe('editPost', () => {
+  it('a função deve atualizar um post', async () => {
+    const userId = 'id do usuário';
+    const postToBeEdited = 'texto a ser editado';
 
-//     expect(addDoc).toHaveBeenCalledTimes(1);
-//     expect(addDoc).toHaveBeenCalledWith(undefined, {
-//       name: mockGetAuth.currentUser.displayName,
-//       author: mockGetAuth.currentUser.uid,
-//       texto,
-//       like: [],
-//     });
-//   });
-// });
+    updateDoc.mockResolvedValue();
 
-// describe('getPost', () => {
-//   it('a função deve retornar um array com o post a ser printado na tela', () => {
-//     getDocs.mockResolvedValue([{
-//       author: {},
-//       id: {},
-//       like: [],
-//       name: {},
-//       texto: {},
-//     }]);
-// eslint-disable-next-line max-len
-//     getPost('x4H2994HPjV9zm6cp7am58XTjci2', '0pRNd4MNFXm3QAI2TYeL', ['J5rtQSlAJqO13E7znQknbvC236U2', 'scbc2YPdX5gnlsKodSzDLh3mpPr2'], 'Tamyres melo', 'Parabéns, meninas. Achei incrível!');
-//     expect(getDocs).toHaveBeenCalledTimes(1);
-//   });
-// });
+    await editPost(userId, postToBeEdited);
 
-// describe('upDatePost', () => {
-//   it('a função deve atualizar um post', async () => {
-//     const userId = 'id do usuario';
-//     const postToBeEdited = 'texto a ser editada';
+    expect(updateDoc).toHaveBeenCalledTimes(1);
+    expect(updateDoc).toHaveBeenCalledWith(undefined, {
+      text: postToBeEdited,
+    });
+  });
+});
 
-//     updateDoc.mockResolvedValue();
-
-//     await upDatePost(userId, postToBeEdited);
-
-//     expect(updateDoc).toHaveBeenCalledTimes(1);
-//     expect(updateDoc).toHaveBeenCalledWith(undefined, {
-//       texto: postToBeEdited,
-//     });
-//   });
-// });
-
+// não passou
 // describe('deletePost', () => {
 //   it('a função deve deletar um post a partir do id do usuário', async () => {
 //     const mockRef = {};
 //     const mockPostCollection = {
 //       posts: {
-//         postId: 'blablabla',
+//         userId: 'shdiasudhiasudhasj',
 //       },
 //     };
 
 //     doc.mockReturnValueOnce(mockRef);
 //     deleteDoc.mockResolvedValueOnce(mockRef);
 
-//     await deletePost(mockPostCollection.posts.postId);
+//     await deletePost(mockPostCollection.posts.userId);
 
 //     expect(doc).toHaveBeenCalledTimes(1);
-//     expect(doc).toHaveBeenCalledWith(undefined, 'post', mockPostCollection.posts.postId);
+//     expect(doc).toHaveBeenCalledWith(undefined, 'post', mockPostCollection.posts.userId);
 //     expect(deleteDoc).toHaveBeenCalledTimes(1);
 //     expect(deleteDoc).toHaveBeenCalledWith(mockRef);
 //   });
 // });
 
+// não passou
 // describe('getPostById', () => {
 //   it('a função deve pegar o id de um post', async () => {
 //     const id = 'abc123';
