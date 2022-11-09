@@ -46,7 +46,6 @@ header {
   height: 15px;
   left: 37px;
   top: 70px;
-  font-family: 'Life Savers';
   font-style: normal;
   font-weight: 800;
   font-size: 12px;
@@ -68,7 +67,6 @@ header {
   .label,
   .btn {
     color: #5d2963;
-    font-family: "Life Savers", cursiva;
     font-weight: 800;
   } */
 
@@ -154,7 +152,6 @@ li {
   height: 15px;
   left: 130px;
   top: 170px;
-  font-family: 'Life Savers';
   font-style: normal;
   font-weight: 800;
   font-size: 12px;
