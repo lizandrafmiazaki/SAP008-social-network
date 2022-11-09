@@ -11,11 +11,11 @@ import { loginWithUser } from '../src/lib/firebase-auth.js';
 //   createPost, getPost, upDatePost, deletePost, getPostById, likePost,
 // } from '../src/lib/firestore.js';
 
-jest.mock('../lib/__mock__/export.js');
+jest.mock('../src/lib/exports.js');
 
-beforeEach(() => {
-  jest.clearAllMocks();
-});
+// beforeEach(() => {
+//   jest.clearAllMocks();
+// });
 
 describe('loginWithUser', () => {
   it(' a função deve logar um usuario utilizando email e senha', () => {
