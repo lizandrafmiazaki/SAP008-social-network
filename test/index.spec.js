@@ -11,7 +11,7 @@ import { loginWithUser } from '../src/lib/firebase-auth.js';
 //   createPost, getPost, upDatePost, deletePost, getPostById, likePost,
 // } from '../src/lib/firestore.js';
 
-jest.mock('../src/lib/export.js');
+jest.mock('../lib/__mock__/export.js');
 
 beforeEach(() => {
   jest.clearAllMocks();
@@ -20,10 +20,10 @@ beforeEach(() => {
 describe('loginWithUser', () => {
   it(' a função deve logar um usuario utilizando email e senha', () => {
     signInWithEmailAndPassword.mockResolvedValue({
-      user: {},
-      senha: {},
+      email: {},
+      password: {},
     });
-    loginWithUser('amanda@gmail.com', '12345678');
+    loginWithUser('amandinha@gmail.com', '123456');
     expect(signInWithEmailAndPassword).toHaveBeenCalledTimes(1);
   });
 });
