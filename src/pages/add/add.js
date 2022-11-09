@@ -1,8 +1,10 @@
 /* eslint-disable indent */
 import { createPost } from '../../lib/firestore.js';
 // import { getAuth } from "../../lib/exports.js";
-import { logout } from '../../lib/firebase-auth.js';
-import { auth } from '../../lib/firebase-auth.js'
+
+import { auth, logout } from '../../lib/firebase-auth.js';
+
+// import { logout } from '../../lib/firebase-auth.js';
 
 export default () => {
   const container = document.createElement('div');
@@ -60,7 +62,7 @@ export default () => {
   </section>`;
   container.innerHTML = template;
 
-  console.log(auth.currentUser.displayName);
+  // console.log(auth.currentUser.displayName);
 
   // => Criação e post e saidas
   const postBtn = container.querySelector('#btn-post');
@@ -81,7 +83,6 @@ export default () => {
 
   // => Botão de sair:
   const btnLogout = container.querySelector('#icon-exit');
-
   btnLogout.addEventListener('click', (e) => {
     e.preventDefault();
     logout();

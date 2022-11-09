@@ -12,6 +12,7 @@ export default () => {
     </figure>
     <p class="name-user">@username</p>
     <p class="control-text">PÁGINA DE INFORMAÇÕES SOBRE AS DEVS</p>
+    <p class="txt-txt">Inserção de texto para que o css não fique vazio e dê erro</p>
         <img class="icon" id="to-top" src="./img/to-top.png" alt="icone de voltar ao topo">
   </div>
   <footer>

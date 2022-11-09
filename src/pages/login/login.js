@@ -11,14 +11,14 @@ export default () => {
     
       <h1>Bem-vinda ao Code Girls!</h1>
           <form class="form-login">
-            <label for="input-email" class="login-label" id="label-email">E-mail:</label>
+            <label for="input-email" class="login-label" id="label-email">E-mail:*</label>
             <input type="email" class="input-area" id="input-email" placeholder="Insira seu e-mail"/>
 
-            <label for="input-password" class="login-label" id="label-password">Senha:</label>
+            <label for="input-password" class="login-label" id="label-password">Senha:*</label>
             <input type="password" class="input-area" id="input-password" placeholder="Insira sua senha"/>
             
-            <p class="error-output"></p>
-            <p class="error-output2"></p>
+            <p class="txt-error" id="error-output"></p>
+            <p class="txt-error" id="error-output2"></p>
 
             <button type="submit" class="btn" id="btn-login">Entrar</button>
           </form>
@@ -38,8 +38,8 @@ export default () => {
   const email = container.querySelector('#input-email');
   const password = container.querySelector('#input-password');
   const form = container.querySelector('.form-login');
-  const errorOutput = container.querySelector('.error-output');
-  const otherErrorOutput = container.querySelector('.error-output2');
+  const errorOutput = container.querySelector('#error-output');
+  const otherErrorOutput = container.querySelector('#error-output2');
   const btnLoginGoogle = container.querySelector('#btn-login-google');
 
   form.addEventListener('submit', (e) => {
@@ -54,9 +54,10 @@ export default () => {
     } else {
       // => ENTRADA DA NOVA FUNÇÃO DE NOVO USUÁRIO
       loginWithUser(email.value, password.value)
-        .then((userCredential) => {
-          const user = userCredential.user;
-          console.log(user);
+        .then(() => {
+          // .then((userCredential) => {
+          // const user = userCredential.user;
+          // console.log(user);
           window.location.hash = '#post';
         })
         .catch((error) => {

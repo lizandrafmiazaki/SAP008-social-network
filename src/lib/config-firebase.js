@@ -1,5 +1,6 @@
 /* eslint-disable import/no-unresolved */
 import { initializeApp, getFirestore } from './exports.js';
+
 const firebaseConfig = {
   apiKey: 'AIzaSyB-5Rzb3sQFADnF3ScoTuxqRzkNCTgoSOw',
   authDomain: 'miacolhe-sn.firebaseapp.com',

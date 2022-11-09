@@ -59,17 +59,18 @@ export default () => {
       inputName.value,
       inputUsername.value,
       email.value,
-      password.value
+      password.value,
     );
 
     if (validationError) {
       otherErrorOutput.innerHTML = validationError;
     } else {
       createNewUser(email.value, password.value)
-        .then((userCredential) => {
-          const user = userCredential.user;
+        .then(() => {
+          // .then((userCredential) => {
+          // const user = userCredential.user;
           window.location.hash = '#post';
-          console.log(user);
+          // console.log(user);
         })
         .catch((error) => {
           errorOutput.innerHTML = errorMessages(error);
