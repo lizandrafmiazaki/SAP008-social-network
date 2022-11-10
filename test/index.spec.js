@@ -10,6 +10,7 @@ import {
   getDoc,
   updateDoc,
   doc,
+  deleteDoc,
 } from '../src/lib/exports.js';
 import {
   loginWithUser,
@@ -22,13 +23,15 @@ import {
   getPost,
   editPost,
   getPostById,
+  deletePost,
+  likePost,
 } from '../src/lib/firestore.js';
 
 jest.mock('../src/lib/exports.js');
 
-// beforeEach(() => {
-//   jest.clearAllMocks();
-// });
+beforeEach(() => {
+  jest.clearAllMocks();
+});
 
 describe('loginWithUser', () => {
   it(' a função deve logar um usuário utilizando email e senha', () => {
@@ -126,91 +129,88 @@ describe('editPost', () => {
 });
 
 // não passou
-// describe('deletePost', () => {
-//   it('a função deve deletar um post a partir do id do usuário', async () => {
-//     const mockRef = {};
-//     const mockPostCollection = {
-//       posts: {
-//         userId: 'shdiasudhiasudhasj',
-//       },
-//     };
+describe('deletePost', () => {
+  it('a função deve deletar um post a partir do id do usuário', async () => {
+    const mockRef = {};
+    const mockPostCollection = {
+      posts: {
+        userId: 'shdiasudhiasudhasj',
+      },
+    };
 
-//     doc.mockReturnValueOnce(mockRef);
-//     deleteDoc.mockResolvedValueOnce(mockRef);
+    doc.mockReturnValueOnce(mockRef);
+    deleteDoc.mockResolvedValueOnce(mockRef);
 
-//     await deletePost(mockPostCollection.posts.userId);
+    await deletePost(mockPostCollection.posts.userId);
 
-//     expect(doc).toHaveBeenCalledTimes(1);
-//     expect(doc).toHaveBeenCalledWith(undefined, 'post', mockPostCollection.posts.userId);
-//     expect(deleteDoc).toHaveBeenCalledTimes(1);
-//     expect(deleteDoc).toHaveBeenCalledWith(mockRef);
-//   });
-// });
+    expect(doc).toHaveBeenCalledTimes(1);
+    expect(doc).toHaveBeenCalledWith(undefined, 'post', mockPostCollection.posts.userId);
+    expect(deleteDoc).toHaveBeenCalledTimes(1);
+    expect(deleteDoc).toHaveBeenCalledWith(mockRef);
+  });
+});
 
-// não passou
-// describe('getPostById', () => {
-//   it('a função deve pegar o id de um post', async () => {
-//     const id = 'abc123';
-//     const ref = {};
-//     const post = {
-//       data: jest.fn(),
-//     };
+// PASSOOOOU UHUUU!!!
+describe('getPostById', () => {
+  it('a função deve pegar o id de um post', async () => {
+    const id = 'abc123';
+    const ref = {};
+    const post = {
+      data: jest.fn(),
+    };
+    doc.mockReturnValueOnce(ref);
+    getDoc.mockResolvedValueOnce(post);
+    await getPostById(id);
+    expect(doc).toHaveBeenCalledTimes(1);
+    expect(doc).toHaveBeenCalledWith(undefined, 'post', id);
+    expect(getDoc).toHaveBeenCalledTimes(1);
+    expect(getDoc).toHaveBeenCalledWith(ref);
+    expect(post.data).toHaveBeenCalledTimes(1);
+  });
+});
 
-//     doc.mockReturnValueOnce(ref);
-//     getDoc.mockResolvedValueOnce(post);
+describe('likePost', () => {
+  it('a função deve adicionar like no post', async () => {
+    const mockPost = {
+      data() {
+        const likeArr = {
+          like: [],
+        };
+        return likeArr;
+      },
+    };
 
-//     await getPostById(id);
+    const postId = 'id do post';
+    const userId = 'id do usuario';
 
-//     expect(doc).toHaveBeenCalledTimes(1);
-//     expect(doc).toHaveBeenCalledWith(undefined, 'post', id);
-//     expect(getDoc).toHaveBeenCalledTimes(1);
-//     expect(getDoc).toHaveBeenCalledWith(ref);
-//     expect(post.data).toHaveBeenCalledTimes(1);
-//   });
-// });
+    getDoc.mockResolvedValue(mockPost);
 
-// describe('likePost', () => {
-//   it('a função deve adicionar like no post', async () => {
-//     const mockPost = {
-//       data() {
-//         const likeArr = {
-//           like: [],
-//         };
-//         return likeArr;
-//       },
-//     };
+    await likePost(postId, userId);
+    expect(updateDoc).toHaveBeenCalledTimes(1);
+    expect(updateDoc).toHaveBeenCalledWith(undefined, {
+      like: [userId],
+    });
+  });
 
-//     const postId = 'id do post';
-//     const userId = 'id do usuario';
+  it('a função deve remover o like do post', async () => {
+    const postId = 'id do post';
+    const userId = 'id do usuario';
 
-//     getDoc.mockResolvedValue(mockPost);
+    const mockPost = {
+      data() {
+        const likeArr = {
+          like: [userId],
+        };
+        return likeArr;
+      },
+    };
 
-//     await likePost(postId, userId);
-//     expect(updateDoc).toHaveBeenCalledTimes(1);
-//     expect(updateDoc).toHaveBeenCalledWith(undefined, {
-//       like: [userId],
-//     });
-//   });
+    getDoc.mockResolvedValue(mockPost);
 
-//   it('a função deve remover o like do post', async () => {
-//     const postId = 'id do post';
-//     const userId = 'id do usuario';
-
-//     const mockPost = {
-//       data() {
-//         const likeArr = {
-//           like: [userId],
-//         };
-//         return likeArr;
-//       },
-//     };
-
-//     getDoc.mockResolvedValue(mockPost);
-
-//     await likePost(postId, userId);
-//     expect(updateDoc).toHaveBeenCalledTimes(1);
-//     expect(updateDoc).toHaveBeenCalledWith(undefined, {
-//       like: [],
-//     });
-//   });
-// });
+    await likePost(postId, userId);
+    expect(updateDoc).toHaveBeenCalledTimes(1);
+    expect(updateDoc).toHaveBeenCalledWith(undefined, {
+      like: [],
+    });
+  });
+});
