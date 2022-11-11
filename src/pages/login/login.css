@@ -1,4 +1,5 @@
-/* ZERANDO AS CONFIGURAÇÕES PADRÕES E APLICANDO DEGRADÊ: */
+@import url('https://fonts.googleapis.com/css2?family=Life+Savers&display=swap');
+
 body {
   margin: 0;
   padding: 0;
@@ -12,125 +13,100 @@ body {
   );
   background-attachment: fixed;
   text-align: center;
+  font-family: 'Life Savers', cursive;
 }
 
-/* ===> MODELO FIRST MOBILE <=== */
-/* FORMULÁRIO DE LOGIN */
-.container-login {
-  border: solid #5d2963 2px;
-  padding: 1rem;
-  margin: 1rem 2rem;
-  text-align: center;
-  border-radius: 1em;
-}
-
-/* E-MAIL E SENHA */
-.input-area {
-  padding: 0.5rem;
-  height: 1rem;
-  width: 16rem;
-  text-align: center;
-  margin: 0.1rem;
-  border-radius: 6px;
-  background: #ffcbed;
-  border: #5d2963 solid 2px;
-  margin-bottom: 1em;
-}
-
-/* .input-area {
-    width: 260px;
-    height: 30px;
-    background: #FFCBED;
-    border-radius: 6px;
-    border: #5D2963 solid 2px;
-    margin: 0.5em 0;
-    margin-bottom: 1em;
-} */
-
-/* TEXTOS */
-.txt-error {
-    color: #c9184a;
-    text-shadow: #ffcad4;
-}
-
-/* BOTÕES */
-.btn {
-  margin: 0.1rem;
-
-  /* degrade-btn-test-figma */
-  background: linear-gradient(
-    180deg,
-    rgba(247, 166, 255, 0.79) 6.97%,
-    rgba(247, 166, 255, 0.792214) 6.97%,
-    rgba(176, 123, 245, 0.54) 56.95%,
-    rgba(115, 120, 255, 0.81) 92.41%
-  );
-  border: 1.8px solid #5d2963;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 6px;
-  /* test-figma-fim */
-
-  /* degrade-btn-figma-inicio */
-  /* box-sizing: border-box;
-    background: linear-gradient(180deg, #FECBEC 2%, #FC6CC8 47.92%, #3586bb 100%);
-    background-blend-mode: overlay;
-    border: 1.5px solid #5D2963;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 6px;
-    text-shadow: 0px 4px 4px rgba(255, 255, 255, 0.2); */
-  /* figma-fim */
-
-  /* font-family: 'Life Savers', cursiva; */
-  font-weight: 800;
-  height: 30px;
-}
-
-#btn-login {
-  width: 122px;
-}
-
-#btn-login-google {
-  width: 161px;
-}
-
-#btn-register {
-  width: 210px;
-}
-
-/* DIVISÓRIAS */
-hr {
-  padding: 0.03rem;
-  margin: 1rem 0.1rem;
-  background-color: #5d2963;
-  border: none;
-}
-
-/* LOGO */
 .logo {
-  margin-top: 20px;
-  width: 6rem;
+    margin-top: 5vw;
+    width: 25vw;
 }
-
-/* TÍTULO */
-h1,
-.login-label,
-.btn {
-  color: #5d2963;
-  /* font-family: 'Life Savers', cursiva; */
-  font-weight: 1200;
+.container-user {
+    border: solid #5d2963 2px;
+    padding: 4.5vw;
+    margin: 4vw 8vw;
+    border-radius: 20px;
 }
-
-/* FORMS, INPUTS E LABELS */
+h1 {
+  font-size: 6vw;
+  font-weight: 900;
+  text-shadow: 0px 2px 4px rgba(245, 79, 190, 0.76);
+  margin: auto;
+}
+h2 {
+  margin: auto;
+  font-size: 5.5vw;
+  text-shadow: 0px 2px 4px rgba(245, 79, 190, 0.445);
+}
+.login-label {
+  font-size: 4.5vw;
+  font-weight: 800;
+  display: block;
+  text-align: left;
+  margin-left: 6vw;
+}
 .form-login {
   display: block;
   text-align: center;
 }
+.input-area {
+  padding: 3.5vw;
+  height: 2.5vw;
+  width: 55vw;
+  text-align: center;
+  margin: 2vw;
+  border-radius: 6px;
+  color: #5d2963;
+  background: #ffcbed;
+  border: #5d2963 solid 2px;
+  font-family: 'Life Savers', cursive;
+  font-size: 4vw;
+  font-weight: 600;
+  letter-spacing: 0.2vw;
+}
+.txt-error {
+  color: #c9184a;
+  text-shadow: 0px 1px 2px #ffcad4;
+  font-weight: 800;
+}
+
+/* Responsividade => Desktop */
+@media screen and (min-width: 750px) {
+.logo {
+  margin-top: 2vw;
+  width: 10vw;
+}
+.container-user {
+  border: solid #5d2963 2px;
+  padding: 2.5vw;
+  margin: auto;
+  width: 35%;
+}
+h1 {
+  font-size: 2.3vw;
+  margin: 1.5%;
+}
+h2 {
+  margin: auto;
+  font-size: 2vw;
+}
 .login-label {
-  display: block;
-  text-align: left;
+  font-size: 1.3vw;
+  margin-left: 1.5vw;
 }
-
-a:link {
-  text-decoration: none;
+.input-area {
+  padding: 1vw;
+  height: 0.7vw;
+  width: 30vw;
+  text-align: center;
+  margin: 1vw;
+  border-radius: 6px;
+  background: #ffcbed;
+  border: #5d2963 solid 2px;
+  font-size: 1.2vw;
+  font-weight: 700;
+  letter-spacing: 0.1vw;
 }
-
+.txt-error {
+  font-size: 1.3vw;
+}
+}

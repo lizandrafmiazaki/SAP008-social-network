@@ -173,15 +173,15 @@ describe('likePost', () => {
   it('a função deve adicionar like no post', async () => {
     const mockPost = {
       data() {
-        const likeArr = {
+        const likes = {
           like: [],
         };
-        return likeArr;
+        return likes;
       },
     };
 
     const postId = 'id do post';
-    const userId = 'id do usuario';
+    const userId = 'id do usuário';
 
     getDoc.mockResolvedValue(mockPost);
 
@@ -194,14 +194,14 @@ describe('likePost', () => {
 
   it('a função deve remover o like do post', async () => {
     const postId = 'id do post';
-    const userId = 'id do usuario';
+    const userId = 'id do usuário';
 
     const mockPost = {
       data() {
-        const likeArr = {
+        const likes = {
           like: [userId],
         };
-        return likeArr;
+        return likes;
       },
     };
 

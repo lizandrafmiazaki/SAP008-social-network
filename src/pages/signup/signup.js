@@ -6,36 +6,38 @@ export default () => {
   const container = document.createElement('div');
 
   const template = `
-        <section class="container-signup">
-            <figure class="img-logo">
-                <img class= "logo" id= "logo" src="./img/logo.png" alt="logo">
-            </figure>
-            <h1>Cadastro</h1>
-            <form class="form-signup">
-              <label for="insert-name" class="registration-label" id="label-name">Nome:</label>
-              <input class="input-form" id="insert-name" placeholder="Insira seu nome"/>
-              
-              <label for="insert-username" class="registration-label">Nome de usuário:</label>
-              <input class="input-form" id="insert-username" placeholder="Insira seu @username"/>
+    <figure class="img-logo">
+      <img class= "logo" id= "logo" src="./img/logo.png" alt="logo">
+    </figure>
 
-              <label for="insert-email" class="registration-label">E-mail:</label>
-              <input type="email" class="input-form" id="insert-email" placeholder="Insira seu e-mail"/>
+    <h1>Bem-vinda ao Code Girls!</h1>
+    <section class="container-user">
+      <h2 class="subtitle">Cadrastre-se</h2>
+      <form class="form-signup">
+        <label for="insert-name" class="registration-label" id="label-name">Nome:</label>
+        <input class="input-form" id="insert-name" placeholder="Insira seu nome"/>
+        
+        <label for="insert-username" class="registration-label">Nome de usuário:</label>
+        <input class="input-form" id="insert-username" placeholder="Insira seu @username"/>
 
-              <label for="insert-password" class="registration-label">Senha:</label>
-              <input type="password" class="input-form" id="insert-password" placeholder="Crie sua senha" />
-              
-              <p class="error-output"></p>
-              <p class="error-output2"></p>
+        <label for="insert-email" class="registration-label">E-mail:</label>
+        <input type="email" class="input-form" id="insert-email" placeholder="Insira seu e-mail"/>
 
-              <input type="submit" class="btn" id="btn-cadastrar" value="Cadastrar"/>
+        <label for="insert-password" class="registration-label">Senha:</label>
+        <input type="password" class="input-form" id="insert-password" placeholder="Crie sua senha" />
+        
+        <p class="error-output"></p>
+        <p class="error-output2"></p>
 
-              <input type="reset" class="btn" id="btn-clean" value="Limpar campos"/>            
-              
-            </form>
+        <input type="submit" class="btn" id="btn-cadastrar" value="Cadastrar"/>
+
+        <input type="reset" class="btn" id="btn-clean" value="Limpar campos"/>            
+        
+      </form>
+      
+        <button class="btn" id="btn-initial">Retornar ao Login</button>
             
-              <button class="btn" id="btn-initial">Retornar ao Login</button>
-            
-        </section>`;
+    </section>`;
   container.innerHTML = template;
 
   // Eventos para capturar inputs:
