@@ -6,10 +6,10 @@ export default () => {
   const container = document.createElement('div');
 
   const template = `
-    <img class= "logo" id= "logo" src="./img/logo.png" alt="logo"> 
-    <section class="container-login">
-    
-      <h1>Bem-vinda ao Code Girls!</h1>
+    <img class= "logo" id= "img-logo" src="./img/logo.png" alt="logo"> 
+    <h1>Bem-vinda ao Code Girls!</h1>
+    <section class="container-user">
+      <h2 class="subtitle">Login</h2>
           <form class="form-login">
             <label for="input-email" class="login-label" id="label-email">E-mail:*</label>
             <input type="email" class="input-area" id="input-email" placeholder="Insira seu e-mail"/>

@@ -3,7 +3,6 @@ import { myFunction } from './lib/index.js';
 import login from './pages/login/login.js';
 import signup from './pages/signup/signup.js';
 import add from './pages/add/add.js';
-import profile from './pages/profile/profile.js';
 import post from './pages/post/post.js';
 import devs from './pages/devs/devs.js';
 
@@ -24,9 +23,6 @@ const init = () => {
         break;
       case '#add':
         routes.appendChild(add());
-        break;
-      case '#profile':
-        routes.appendChild(profile());
         break;
       case '#post':
         routes.appendChild(post());
