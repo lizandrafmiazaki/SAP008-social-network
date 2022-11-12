@@ -11,10 +11,10 @@ export default () => {
     <section class="container-user">
       <h2 class="subtitle">Login</h2>
           <form class="form-login">
-            <label for="input-email" class="login-label" id="label-email">E-mail:*</label>
+            <label for="input-email" class="label-for-input" id="label-email">E-mail:*</label>
             <input type="email" class="input-area" id="input-email" placeholder="Insira seu e-mail"/>
 
-            <label for="input-password" class="login-label" id="label-password">Senha:*</label>
+            <label for="input-password" class="label-for-input" id="label-password">Senha:*</label>
             <input type="password" class="input-area" id="input-password" placeholder="Insira sua senha"/>
             
             <p class="txt-error" id="error-output"></p>
@@ -25,11 +25,7 @@ export default () => {
           <hr>
           <button class="btn" id="btn-login-google">Login com Google</button>
           <hr>
-          <a href= "/#signup"><button class="btn" id="btn-register">Clique aqui para se cadastrar</button></a> 
-
-          <a href= "/#post"><button>ATALHO</button></a> 
-          <a href= "/#add"><button>ATALHO 2</button></a> 
-
+          <a href= "/#signup"><button class="btn" id="btn-register">Clique aqui para se cadastrar</button></a>
     </section>
     `;
   container.innerHTML = template;
