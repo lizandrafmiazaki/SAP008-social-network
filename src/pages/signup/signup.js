@@ -30,8 +30,15 @@ export default () => {
         <input type="reset" class="btn" id="btn-clean" value="Limpar campos"/>
         <button class="btn" id="btn-initial">Retornar ao Login</button>
       </form>
-            
-    </section>`;
+    </section>
+    <footer>
+      <p class="footer-devs">Desenvolvido por <a class="link-linkedin" href="https://www.linkedin.com/in/amandapolari/" target="_blank"
+      >Amanda Polari</a> e <a class="link-linkedin"
+      href="https://www.linkedin.com/in/lizandra-miazaki-59b097227/"
+      target="_blank"
+      >Lizandra Miazaki</a></p>
+    </footer>
+    `;
   container.innerHTML = template;
 
   // Eventos para capturar inputs:

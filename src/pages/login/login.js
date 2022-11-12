@@ -27,6 +27,13 @@ export default () => {
           <hr>
           <a href= "/#signup"><button class="btn" id="btn-register">Clique aqui para se cadastrar</button></a>
     </section>
+    <footer>
+      <p class="footer-devs">Desenvolvido por <a class="link-linkedin" href="https://www.linkedin.com/in/amandapolari/" target="_blank"
+      >Amanda Polari</a> e <a class="link-linkedin"
+      href="https://www.linkedin.com/in/lizandra-miazaki-59b097227/"
+      target="_blank"
+      >Lizandra Miazaki</a></p>
+    </footer>
     `;
   container.innerHTML = template;
 
