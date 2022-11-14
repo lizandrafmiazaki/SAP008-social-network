@@ -6,38 +6,39 @@ export default () => {
   const container = document.createElement('div');
 
   const template = `
-    <figure class="img-logo">
-      <img class= "logo" id= "logo" src="./img/logo.png" alt="logo">
-    </figure>
-
+    <img class= "logo" id= "logo" src="./img/logo.png" alt="logo">
     <h1>Bem-vinda ao Code Girls!</h1>
     <section class="container-user">
       <h2 class="subtitle">Cadrastre-se</h2>
       <form class="form-signup">
-        <label for="insert-name" class="registration-label" id="label-name">Nome:</label>
-        <input class="input-form" id="insert-name" placeholder="Insira seu nome"/>
+        <label for="insert-name" class="label-for-input" id="label-name">Nome:*</label>
+        <input class="input-area" id="insert-name" placeholder="Insira seu nome"/>
         
-        <label for="insert-username" class="registration-label">Nome de usuário:</label>
-        <input class="input-form" id="insert-username" placeholder="Insira seu @username"/>
+        <label for="insert-username" class="label-for-input">Nome de usuário:*</label>
+        <input class="input-area" id="insert-username" placeholder="Insira seu @username"/>
 
-        <label for="insert-email" class="registration-label">E-mail:</label>
-        <input type="email" class="input-form" id="insert-email" placeholder="Insira seu e-mail"/>
+        <label for="insert-email" class="label-for-input">E-mail:*</label>
+        <input type="email" class="input-area" id="insert-email" placeholder="Insira seu e-mail"/>
 
-        <label for="insert-password" class="registration-label">Senha:</label>
-        <input type="password" class="input-form" id="insert-password" placeholder="Crie sua senha" />
+        <label for="insert-password" class="label-for-input">Senha:*</label>
+        <input type="password" class="input-area" id="insert-password" placeholder="Crie sua senha" />
         
-        <p class="error-output"></p>
-        <p class="error-output2"></p>
+        <p class="txt-error" id="error-output"></p>
+        <p class="txt-error" id="error-output2"></p>
 
-        <input type="submit" class="btn" id="btn-cadastrar" value="Cadastrar"/>
-
-        <input type="reset" class="btn" id="btn-clean" value="Limpar campos"/>            
-        
-      </form>
-      
+        <input type="submit" class="btn" id="btn-signup" value="Cadastrar"/>
+        <input type="reset" class="btn" id="btn-clean" value="Limpar campos"/>
         <button class="btn" id="btn-initial">Retornar ao Login</button>
-            
-    </section>`;
+      </form>
+    </section>
+    <footer>
+      <p class="footer-devs">Desenvolvido por <a class="link-linkedin" href="https://www.linkedin.com/in/amandapolari/" target="_blank"
+      >Amanda Polari</a> e <a class="link-linkedin"
+      href="https://www.linkedin.com/in/lizandra-miazaki-59b097227/"
+      target="_blank"
+      >Lizandra Miazaki</a></p>
+    </footer>
+    `;
   container.innerHTML = template;
 
   // Eventos para capturar inputs:
@@ -46,8 +47,8 @@ export default () => {
   const email = container.querySelector('#insert-email');
   const password = container.querySelector('#insert-password');
   const form = container.querySelector('.form-signup');
-  const errorOutput = container.querySelector('.error-output');
-  const otherErrorOutput = container.querySelector('.error-output2');
+  const errorOutput = container.querySelector('#error-output');
+  const otherErrorOutput = container.querySelector('#error-output2');
   const btnReturn = container.querySelector('#btn-initial');
 
   btnReturn.addEventListener('click', () => window.location.replace('#'));
