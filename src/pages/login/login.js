@@ -6,7 +6,7 @@ export default () => {
   const container = document.createElement('div');
 
   const template = `
-    <img class= "logo" id= "img-logo" src="./img/logo.png" alt="logo"> 
+    <img class= "logo" id= "img-logo-login" src="./img/logo.png" alt="logo"> 
     <h1>Bem-vinda ao Code Girls!</h1>
     <section class="container-user">
       <h2 class="subtitle">Login</h2>

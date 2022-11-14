@@ -12,21 +12,22 @@ const auth = getAuth(app);
 
 export default () => {
   const container = document.createElement('div');
+
   const printPost = async () => {
     const dataPost = await getPost();
     const postTemplate = dataPost.map((post) => `
+  <header>
+    <img class= "logo" id="logo-post" src="./img/logo.png" alt="logo">
+    <div class="space"></div>
+  </header>
     <section class="container-post">
-    <header>
-      <img class= "logo" id= "logo" src="./img/logo.png" alt="logo">
-      <div class="space"></div>
-    </header>
-    
+
     <div class="container" id="all-content">  
-        <p class="username">${post.name}</p>     
-      
+    <p class="username">${post.name}</p>     
+  
       <textarea class="postTxt txtArea" data-post="${post.id}" id="text-post" disabled>${post.text}</textarea>
 
-      <<span class="save-alert hide" data-save-alert="${post.id}"></span>
+      <span class="save-alert hide" data-save-alert="${post.id}"></span>
 
       <div ${post.author === auth.currentUser.uid ? 'class="btns-post-container" ' : 'class="btns-post-container hide"'}>          
         <button class="btn-post edit" data-id-post-edit="${post.id}" id="btnEdit" type="button">Editar</button>
@@ -42,6 +43,8 @@ export default () => {
       <img class="heart-icon" ${post.like.includes(auth.currentUser.uid) ? 'src="img/full-heart.png"' : 'src="img/empty-heart.png"'} alt="purple-heart"> 
       </button> 
     </form>
+    
+    <img class="icon" id="to-top" src="./img/to-top.png" alt="icone de voltar ao topo">
 
     <footer class="footer-nav">
         <nav>
@@ -143,6 +146,12 @@ export default () => {
       });
     });
   };
+// // Botão Return
+// const btnReturn = container.querySelector('#to-top');
+
+// btnReturn.addEventListener("click", () =>
+//   window.scrollTo({ top: 0, behavior: "smooth" })
+// );
 
   //  => Botão de sair:
   // const btnLogout = container.querySelector('#icon-exit');
