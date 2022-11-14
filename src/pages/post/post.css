@@ -32,11 +32,13 @@ header {
   outline:rgba(115, 120, 255, 0.81);
   width: 70%;
   height: 80px;
-}
-.postTxt, .save-alert  {
   border-radius: 12px;
   font-family: 'Life Savers', cursiva;
-  font-weight: 400;
+  font-weight: 800;
+}
+span {
+  font-weight: 700;
+  margin: 0.5%;
 }
 .container-post {
   margin: 5% auto 2% auto;
@@ -63,10 +65,17 @@ header {
   font-size: 3.5vw;
   padding: 1%;
 }
-#btnLike {
+#btnLike, .like::after {
+  display: inline-flex;
   background: none;
   border: none;
+  content:attr(data-count-likes);
+  font-family: 'Life Savers', cursiva;
+  font-weight: 800;
+  font-size: 4vw;
 }
+/* .like::after {
+} */
 
 /* ESSA CONFIGURAÇÃO MANTER O FOOTER SEM REPETIÇÃO */
 .footer-nav {
@@ -125,6 +134,9 @@ li {
   .container-post {
     margin: -2% auto 2% auto;
   }
+  span {
+    font-size: 1.1vw;
+  }
   /* #text-post {
     margin-bottom: -100px;
   } */
@@ -133,8 +145,9 @@ li {
     font-size: 1vw;
     padding: 0.5%;
   }
-  #btnLike {
+  #btnLike,.like::after {
     margin-bottom: 1vw;
+    font-size: 1.2vw;
   }
   body {
     margin: 13% auto 5% auto;
