@@ -18,12 +18,10 @@ export default () => {
     <section class="container-post">
     <header>
       <img class= "logo" id= "logo" src="./img/logo.png" alt="logo">
+      <div class="space"></div>
     </header>
     
-    <div class="container" id="all-content">
-      <figure class="">
-        <img class="photo-user" id="photo-user" src="./img/user.png" alt="imagem do usuário">
-      </figure>   
+    <div class="container" id="all-content">  
         <p class="username">${post.name}</p>     
       
       <textarea class="postTxt txtArea" data-post="${post.id}" id="text-post" disabled>${post.text}</textarea>
@@ -45,7 +43,7 @@ export default () => {
       </button> 
     </form>
 
-    <footer>
+    <footer class="footer-nav">
         <nav>
           <ul>
             <li>
