@@ -12,25 +12,21 @@ export default () => {
   const template = `
     <section class="container-post">
       <header>
-        <img class= "logo" id= "logo" src="./img/logo.png" alt="logo">
+        <img class= "logo" id="logo-post" src="./img/logo.png" alt="logo">
       </header>
       <div class="container">
-        <figure class="">
-          <img class="photo-user" id="photo-user" src="./img/user.png" alt="imagem do usuário">
-        </figure>
-        <p class="name-user">${auth.currentUser.displayName}</p>
-        <p class="control-text">Digite abaixo o que deseja postar</p>
+        <p class="username">${auth.currentUser.displayName}</p>
         <form class="form-text">
-          <input type="text" class="typing-area">
-          <button class="btn" id="btn-post">
+          <input type="text" class="postTxt" id="text-post" placeholder="Digite aqui o que deseja postar!">
+          <p class="output-alert"></p>
+          <button class="btn-post" id="btn-ok">
             Postar
           </button>
         </form>
-        <p class="output-alert"></p>
-            <img class="icon" id="to-top" src="./img/to-top.png" alt="icone de voltar ao topo">
+            
       </div>
 
-    <footer>
+    <footer class="footer-nav">
       <nav>
         <ul>
           <li>
@@ -60,8 +56,8 @@ export default () => {
   // console.log(auth.currentUser.displayName);
 
   // => Criação e post e saidas
-  const postBtn = container.querySelector('#btn-post');
-  const contentPost = container.querySelector('.typing-area');
+  const postBtn = container.querySelector('#btn-ok');
+  const contentPost = container.querySelector('#text-post');
   const outputAlert = container.querySelector('.output-alert');
 
   // const outputPost = container.querySelector('.output-post');

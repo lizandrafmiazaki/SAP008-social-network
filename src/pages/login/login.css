@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Life+Savers&display=swap');
-body {
+* {
   margin: 0;
+  padding: 0;
+}
+body {
   padding: 0;
   background-image: linear-gradient(
     140deg,
@@ -13,15 +16,17 @@ body {
   background-attachment: fixed;
   text-align: center;
   font-family: 'Life Savers', cursive;
+  width: 100%;
+  height: 100%;
 }
-.logo {
-    margin-top: 3.5vw;
-    width: 23vw;
+#img-logo-login {
+  margin: -20vw 0 2vw 0;
+  width: 20%;
 }
 .container-user {
+    margin: 0 8vw;
     border: solid #5d2963 2px;
     padding: 4vw;
-    margin: 4vw 8vw;
     border-radius: 20px;
     box-shadow: 6px 6px 9px rgba(50, 50, 50, 0.77);
 }
@@ -118,20 +123,27 @@ hr {
 }
 /* Responsividade => Desktop */
 @media screen and (min-width: 750px) {
-.logo {
-  margin: 0.2vw;
-  width: 7.7vw;
+#img-logo-login  {
+  margin: -30vw 0 1vw 0;
+  width: 8.5%;
 }
 .container-user {
-  border: solid #5d2963 2px;
+  margin: 0 auto;
   padding: 1vw 2vw 1.2vw 2vw;
-  margin: auto;
   width: 35%;
 }
+/* .container-user {
+  border: solid #5d2963 2px;
+  padding: 1vw 2vw 1.2vw 2vw;
+  margin: -13% auto -5% auto;
+  /* margin: auto; */
+  /* width: 35%; */
+/* } */ 
 h1 {
   font-size: 2vw;
-  margin: -0.4vw 0 0.6vw 0;
+  margin: -0.2vw 0 0.4vw 0;
 }
+
 h2 {
   margin-bottom: -2vw 0.4vw;
   font-size: 1.8vw;
