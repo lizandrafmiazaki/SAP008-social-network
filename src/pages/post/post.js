@@ -3,7 +3,7 @@ import {
 } from '../../lib/firestore.js';
 import { getAuth } from '../../lib/exports.js';
 import { app } from '../../lib/config-firebase.js';
-// import { logout } from '../../lib/firebase-auth.js';
+import { logout } from '../../lib/firebase-auth.js';
 
 const auth = getAuth(app);
 
@@ -44,7 +44,7 @@ export default () => {
       </button> 
     </form>
     
-    <img class="icon" id="to-top" src="./img/to-top.png" alt="icone de voltar ao topo">
+    <img class="icon" id="to-top" src="./img/to-top.png" alt="ícone de voltar ao topo">
 
     <footer class="footer-nav">
         <nav>
@@ -65,7 +65,7 @@ export default () => {
               </a>
             </li>
             <li>
-            <img class="icon" id="icon-exit" src="./img/icon-exit.png" alt="icone de sair">
+              <img class="icon" id="icon-exit" src="./img/icon-exit.png" alt="icone de sair">
             </li>
           </ul>
         </nav>
@@ -77,6 +77,8 @@ export default () => {
     const btnsEdit = Array.from(container.querySelectorAll('#btnEdit'));
     const btnsDelete = Array.from(container.querySelectorAll('#btnDelete'));
     const btnsLike = Array.from(container.querySelectorAll('#btnLike'));
+    const btnTop = Array.from(container.querySelectorAll('#to-top'));
+    const btnLogout = Array.from(container.querySelectorAll('#icon-exit'));
 
     btnsEdit.forEach((btn) => {
       btn.addEventListener('click', (e) => {
@@ -116,7 +118,7 @@ export default () => {
 
         btnConfirmDelete.addEventListener('click', async () => {
           await deletePost(postToBeDeleted);
-          window.location.reload();
+          window.location.hash = ' ';
         });
 
         btnDeclineDelete.addEventListener('click', () => {
@@ -145,22 +147,24 @@ export default () => {
           });
       });
     });
+
+    // Botão topo
+    btnTop.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        window.scrollTo({ top: 0, behavior: "smooth" })
+      })
+    });
+    
+      // //  => Botão de sair:
+      btnLogout.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        logout();
+        window.location.hash = ' ';
+      })
+    });
+    
   };
-// // Botão Return
-// const btnReturn = container.querySelector('#to-top');
-
-// btnReturn.addEventListener("click", () =>
-//   window.scrollTo({ top: 0, behavior: "smooth" })
-// );
-
-  //  => Botão de sair:
-  // const btnLogout = container.querySelector('#icon-exit');
-
-  // btnLogout.addEventListener('click', (e) => {
-  //   e.preventDefault();
-  //   logout();
-  //   window.location.hash = ' ';
-  // });
   printPost();
   return container;
 };
