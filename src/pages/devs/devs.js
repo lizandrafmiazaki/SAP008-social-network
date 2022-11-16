@@ -14,11 +14,11 @@ export default () => {
       <div class="caption">
         <h3>Amanda Polari</h3>
         <p>Web Developer</p>
-        <button>Contrate-me</button>
         <div class="social-links">
-          <i class="fa-brands fa-facebook-f"></i>
-          <i class="fa-brands fa-instagram"></i>
-          <i class="fa-brands fa-twitter"></i>
+          <a href="https://github.com/amandapolari" target="_blank">
+          <img id="github" src="./img/github.png"></a>
+          <a href="https://www.linkedin.com/in/amandapolari/" target="_blank">
+          <img id="linkedin" src="./img/linkedIn.png"></a>
         </div>
       </div>
     </div>
@@ -29,11 +29,11 @@ export default () => {
       <div class="caption">
         <h3>Lizandra Miazaki</h3>
         <p>Web Developer</p>
-        <button>Contrate-me</button>
         <div class="social-links">
-          <i class="fa-brands fa-facebook-f"></i>
-          <i class="fa-brands fa-instagram"></i>
-          <i class="fa-brands fa-twitter"></i>
+          <a href="https://github.com/lizandrafmiazaki" target="_blank">
+          <img id="github" src="./img/github.png"></a>
+          <a href="https://www.linkedin.com/in/lizandramiazaki/" target="_blank">
+          <img id="linkedin" src="./img/linkedIn.png"></a>
         </div>
       </div>
     </div>
