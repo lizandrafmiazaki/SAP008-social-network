@@ -50,9 +50,7 @@ export default () => {
         <nav>
           <ul>
             <li>
-              <a href="/#post">
                 <img class="icon" id="icon-home" src="./img/icon-homepage.png" alt="icone de homepage">
-              </a>
             </li>
             <li>
               <a href="/#add">
@@ -79,6 +77,7 @@ export default () => {
     const btnsLike = Array.from(container.querySelectorAll('#btnLike'));
     const btnTop = Array.from(container.querySelectorAll('#to-top'));
     const btnLogout = Array.from(container.querySelectorAll('#icon-exit'));
+    const homePage = Array.from(container.querySelector('#icon-home'));
 
     btnsEdit.forEach((btn) => {
       btn.addEventListener('click', (e) => {
@@ -152,6 +151,13 @@ export default () => {
     btnTop.forEach((btn) => {
       btn.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+
+    homePage.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.location.hash = '#post';
       });
     });
 
