@@ -150,20 +150,19 @@ export default () => {
 
     // Botão topo
     btnTop.forEach((btn) => {
-      btn.addEventListener('click', (e) => {
-        window.scrollTo({ top: 0, behavior: "smooth" })
-      })
+      btn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
     });
-    
-      // //  => Botão de sair:
-      btnLogout.forEach((btn) => {
+
+    //  => Botão de sair:
+    btnLogout.forEach((btn) => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
         logout();
         window.location.hash = ' ';
-      })
+      });
     });
-    
   };
   printPost();
   return container;
