@@ -16,8 +16,8 @@ export default () => {
   const printPost = async () => {
     const dataPost = await getPost();
     const postTemplate = dataPost.map((post) => `
-  <header>
-    <img class= "logo" id="logo-post" src="./img/logo.png" alt="logo">
+  <header class="header-post" id="header-post-map">
+    <img class= "logo" id="logo-post" src="./img/logo-sombra-suave.png" alt="logo">
     <div class="space"></div>
   </header>
     <section class="container-post">
@@ -46,7 +46,7 @@ export default () => {
     
     <img class="icon" id="to-top" src="./img/to-top.png" alt="ícone de voltar ao topo">
 
-    <footer class="footer-nav">
+    <footer class="footer-nav" id="footer-post">
         <nav>
           <ul>
             <li>
