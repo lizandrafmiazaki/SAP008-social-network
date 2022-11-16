@@ -4,18 +4,41 @@ export default () => {
   const template = `
   <section class="container-home">
   <header>
-  <img class= "logo" id= "logo" src="./img/logo.png" alt="logo">
+  <img class= "logo" id= "logo-post" src="./img/logo.png" alt="logo">
   </header>
-  <div>
-    <figure class="">
-      <img class="photo-user" id="photo-user" src="./img/user.png" alt="imagem do usuário">
-    </figure>
-    <p class="name-user">@username</p>
-    <p class="control-text">PÁGINA DE INFORMAÇÕES SOBRE AS DEVS</p>
-    <p class="txt-txt">Inserção de texto para que o css não fique vazio e dê erro</p>
-        <img class="icon" id="to-top" src="./img/to-top.png" alt="icone de voltar ao topo">
-  </div>
-  <footer>
+  <body class="body-devs">
+    <div class="profile-card">
+      <div class="img">
+        <img id="img-profile" src="./img/amanda-polari.jpg" alt="">
+      </div>
+      <div class="caption">
+        <h3>Amanda Polari</h3>
+        <p>Web Developer</p>
+        <div class="social-links">
+          <a href="https://github.com/amandapolari" target="_blank">
+          <img id="github" src="./img/github.png"></a>
+          <a href="https://www.linkedin.com/in/amandapolari/" target="_blank">
+          <img id="linkedin" src="./img/linkedIn.png"></a>
+        </div>
+      </div>
+    </div>
+    <div class="profile-card">
+      <div class="img">
+        <img id="img-profile" src="./img/lizandra-miazaki.jpg" alt="">
+      </div>
+      <div class="caption">
+        <h3>Lizandra Miazaki</h3>
+        <p>Web Developer</p>
+        <div class="social-links">
+          <a href="https://github.com/lizandrafmiazaki" target="_blank">
+          <img id="github" src="./img/github.png"></a>
+          <a href="https://www.linkedin.com/in/lizandramiazaki/" target="_blank">
+          <img id="linkedin" src="./img/linkedIn.png"></a>
+        </div>
+      </div>
+    </div>
+  <body>
+  <footer class="footer-nav">
     <nav>
       <ul>
         <li>
