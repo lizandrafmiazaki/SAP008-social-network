@@ -118,7 +118,7 @@ export default () => {
 
         btnConfirmDelete.addEventListener('click', async () => {
           await deletePost(postToBeDeleted);
-          window.location.hash = ' ';
+          printPost();
         });
 
         btnDeclineDelete.addEventListener('click', () => {
