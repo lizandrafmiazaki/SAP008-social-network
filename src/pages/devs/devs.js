@@ -61,11 +61,6 @@ export default () => {
           <img class="icon" id="icon-exit" src="./img/icon-exit.png" alt="icone de sair">
           </a>
         </li>
-        <li>
-          <a href="/#inform">
-            <img class="icon"id="icon-settings" src="./img/icon-settings.png" alt="icone de configurações">
-          </a>
-        </li>
       </ul>
     </nav>
   </footer>
