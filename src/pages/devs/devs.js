@@ -49,7 +49,7 @@ export default () => {
           </a>
         </li>
         <li>
-          <a href="/#post">
+          <a href="/#add">
             <img class="icon" id="icon-add" src="./img/icon-add-post.png" alt="icone de adicionar post">
           </a>
         </li>
