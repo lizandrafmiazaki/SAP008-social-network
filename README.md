@@ -19,70 +19,47 @@
 ***
 
 ## 1. Resumo do Projeto
---------> INICIEI O RESUMO DO PROJETO AQUI:
 
-![Página de Login](/src/img/login-deploy.png)
+![Página de Login](./src/img/login-deploy.png)
 
-O **Projeto Social Network** foi o terceiro projeto desenvolvido no *bootcamp da Laboratória*. Uma Rede Social que permitirá à qualquer usuário criar uma conta de acesso, logar-se com ela, criar, editar, deletar e dar likes em publicações. 
-O objetivo principal de aprendizagem deste projeto é construir uma Single-page Application (SPA) responsiva, trabalhar com autenticação com Firebase Auth, persistência de dados com Firestore e encaminhamento (rotas) de páginas ou componentes.
-
---------- PAREI O RESUMO DO PROJETO AQUI:
+O **Projeto Social Network** foi o terceiro projeto desenvolvido no *bootcamp da Laboratória*. Uma Rede Social que permite que o usuário crie uma conta de acesso, logue-se com ela, crie, edite, delete e dê likes em publicações. 
+O objetivo principal de aprendizagem deste projeto foi construir uma Single-page Application (SPA) responsiva, trabalhar com autenticação com Firebase Auth e persistência de dados com Firestore.
 
 ## 2. Definição de produto
 
---------> INICIEI Definição de produto AQUI:
+O [**Code Girls**](https://lizandrafmiazaki.github.io/SAP008-social-network/) é uma rede social de compartilhamento de dicas de programação e tecnologia para mulheres.
 
-O [**Code Girls**](https://lizandrafmiazaki.github.io/SAP008-social-network/) é uma rede social de compartilhamento de dicas de programação para mulheres.
+A página de login oferece as usuárias duas formas para entrar em suas contas: *login com e-mail e senha* ou *login com o Google*. Esta página oferece ainda a opção de *cadastro* caso a usuária ainda não possua uma conta. 
 
-A página de login oferece aos usuários duas formas de entrar em suas contas, *login com e-mail e senha* ou *login com o Google*. Esta página oferece ainda a opção de *cadastro* caso o usuário não possua uma conta. 
+Caso haja um problema ao realizar o login, o site também informa, de forma amigável, qual foi o seu erro e uma sugestão de correção. Sendo possível também, verificar se a usuária já possui ou não conta existente.
 
-Caso haja um problema ao realizar o login, o site também informa, de forma amigável ao usuário qual foi o seu erro e uma sugestão de correção. Sendo possível também, verificar se o usuário já possui ou não conta existente.
+Depois de logada, a usuária poderá ler e curtir os posts já existentes, bem como poderá criar seu próprio post, além de editá-lo e excluí-lo. 
 
---------> PAREI Definição de produto AQUI:
+Para facilitar a navegação da usuária, a página de cadastro contém um botão de *'Limpar todos os campos'* que limpa todos os dados inseridos para o cadastro e um botão que retorna a página inicial. Já na página que contém os posts há um botão *'Topo'*, para retorna para o topo da página.
 
-O [**Data LoLvers**](https://amandapolari.github.io/SAP008-data-lovers/src/index.html) foi pensado e formulado, inicialmente, para usuários que querem começar a jogar [_League of Legends_](https://www.leagueoflegends.com/pt-br/)  e, para isso, precisam conhecer e escolher um personagem (campeão) para iniciar essa jornada!
-
-Logo, a página inicial oferece aos usuários opções de três banneres clicáveis que levam diretamente ao resultado de campeões do tipo assassinos, atiradores e suporte com nível de dificuldade 'fácil', conforme o banner escolhido. 
-
-Adicionalmente o usuário tem a possibilidade de filtrar e ordenar os personagens de acordo com os tipos de campeões do jogo e os níveis de dificuldades existentes para cada um deles, respectivamente. Além disso, também é possível ordená-los por nome de forma ascendente (A-Z) e descendente (Z-A). 
-
-O resultado da pesquisa é apresentado em forma de cards, com frente e verso, onde na frente há a imagem do campeão, nome e título e no verso contém seus principais atributos como: ataque, defesa, magia, nível de dificuldade e o tipo do campeão selecionado.
-
-Para facilitar a navegação do usuário, a página contém um botão de **'Limpar'** que limpa a pesquisa e retorna a página inicial, e o botão **'Topo'**, para retorna para o topo da página.
-
-![modelo com banner](/src/img/pagina-inicial.png)
-
-![modelo com cards](/src/img/pagina-de-cards.png)
 
 ***
 ## 3. História do Usuário
+### História 1
 
-### História central
+**Como** uma pessoa curiosa, **quero** me cadastrar **para** conhecer a plataforma.
 
-**Como** uma jogadora iniciante de LoL, **quero** consultar os tipos de personagens (campeões), seus atributos e qual é o nível de dificuldade de cada um deles, **para** selecionar o personagem que eu mais me identifico.
+### História 2
 
-### _Sub_-_histórias:_
+**Como** uma pessoa que já tem cadastro, **quero** fazer o login com e-mail e senha **para** entrar na plataforma.
 
-* ### **H1**
+### História 3
 
-  **Como** jogadora iniciante de LoL, **quero** buscar os tipos de campeões e ordená-los por nome **para** conhecê-los.
+**Como** uma pessoa que já tem cadastro, **quero** fazer o login com Google **para** entrar na plataforma.
 
-* ### **H2**
+### História 4
 
-  **Como** jogadora iniciante de LoL **quero** consultar os tipos de campeões  por nível dificuldade ‘fácil’ **para** saber qual o mais fácil para começar a jogar.
+**Como** uma pessoa que **deseja** compartilhar informações sobre tecnologia, **quero** criar, editar e excluir meus próprios posts.
 
-* ### **H3**
+### História 5
 
-  **Como**  jogadora intermediária de LoL, **quero** consultar os tipos de campeões  por nível dificuldade ‘médio’ **para** progredir no jogo.
+**Como** uma pessoa que **deseja** ver informações sobre tecnologia, **quero** visualizar essas informações e poder dar like.
 
-* ### **H4**
-
-  **Como** jogadora um pouco mais experiente de LoL, **quero** buscar qual é o campeão mais difícil de jogar, **para** me desenvolver e melhorar dentro do jogo. 
-
-* ### **H5**
-
-  **Como** jogadora de LoL, **quero** me informar qual a porcentagem que a minha pesquisa corresponde, **para** ter uma ideia da quantidade de opções de campeões disponíveis.
-***
 ## 4. Instalações
 
 ### Ter instalado:
@@ -114,34 +91,20 @@ npm run test
 
 ## 7. Tecnologias utilizadas
 Esse programa foi construído com:
-* HTML
-* CSS
-* JavaScript
-* Figma
+* HTML;
+* CSS;
+* JavaScript;
+* Firebase;
+* Figma.
 
 ***
 
 ## 8. Desenho de interface do usuário
 
-Os [protótipos de baixa](https://www.figma.com/file/FymEgwaH0Oi9ssKVXSVENT/Prot%C3%B3tipo-Alta-Fidelidade?node-id=0%3A1) e [alta fidelidade](https://www.figma.com/file/FymEgwaH0Oi9ssKVXSVENT/Prot%C3%B3tipo-Alta-Fidelidade?node-id=0%3A1) foram feitos utilizando o Figma.
-
-### Protótipo de baixa fidelidade:
-![baixa-fidelidade](/src/img/baixa-fidelidade.png)
+O prototótipo de alta fidelidade foi feito utilizando Figma.
 
 ### Protótipo de alta fidelidade:
-![alta-fidelidade](/src/img/alta-fidelidade.png)
+![alta-fidelidade](./src/img/p-alta-fidelidade.jpeg)
 
 
 ***
-
-## 9. Testes de usabilidade
-
-Quando começamos a elaborar o **Data LoLvers**, a princípio, não tínhamos pensando no botão _'Limpar'_ e no botão _'Topo'_. 
-
-Após alguns testes de usabilidade detectamos a necessidade de um botão para 'resetasse' a pesquisa feita pelo usuário. Então adicionamos o botão 'Limpar'. 
-
-Quando printamos os cards na tela, percebemos q havia uma grande quantidade de cards e pra agilizar e facilitar a navegação optamos em colocar um botão que retornasse ao topo da página. No primeiro momento era um botão fixo no final da página, porém com mais testes de usabilidade, percebemos que seria mais confortável para o usuário um botão que _scrollasse_ junto com o conteúdo.
-
-A ideia dos banneres na página inicial do Data LoLvers também foi pensado para o maior conforto do usuário em ter opções mais práticas e diretas, sem precisar selecionar algo.
-
-Posteriormente, adequamos o tamanho dos botões, das letras e o espaçamento entre linhas e elementos, buscando melhorar a navegação do usuário em telas menores.
