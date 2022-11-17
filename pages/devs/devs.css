@@ -1,0 +1,118 @@
+.body-devs {
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Life Savers', cursive;
+}
+.profile-card {
+  display: inline-block;
+  cursor: pointer;
+  width: 45vw;
+  height: 45vw;
+  background: #fff;
+  padding: 3vw;
+  border-radius: 50%;
+  box-shadow: 0 0 22px rgba(51, 51, 51, 0.687);
+  margin: 5%;
+  transition: 0.6s;
+}
+.profile-card:hover {
+  flex-direction: column;
+  border-radius: 10px;
+  height: 70vw;
+  width: 45vw;
+}
+.profile-card img {
+  width: 100%;
+  height: 100%;
+  transition: 0.6s;
+  border-radius: 50%;
+}
+#img-profile {
+  width: 100%;
+  border-radius: 50%;
+  box-shadow: 0 0 22px #3336;
+  transition: 0.6s;
+}
+.profile-card:hover img {
+  transform: translateY(-60px);
+  border-radius: 10px;
+}
+.caption {
+  text-align: center;
+  transform: translateY(-70px);
+  opacity: 0;
+  transition: 0.6s;
+}
+.profile-card:hover .caption {
+  opacity: 1;
+}
+.caption h3 {
+  font-size: 5.5vw;
+  font-family: 'Life Savers', cursive;
+  font-weight: 600;
+  margin: 2vw;
+}
+.caption p {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  top: -25px;
+  font-size: 4.5vw;
+  color: #ff1bec;
+  font-weight: bold;
+}
+.social-links {
+  width: 100%;
+  justify-content: center;
+  margin-top: 55%;
+}
+#linkedin, #github {
+    margin: 2vw;
+    height: 15vw;
+}
+#linkedin {
+  width: 15.5vw;
+}
+#github {
+  width: 15vw;
+}
+
+@media screen and (min-width: 750px) {
+  .profile-card {
+    width: 15vw;
+    height: 15vw;
+    padding: 1vw;
+    margin: 2%;
+  }
+  .profile-card:hover {
+    height: 370px;
+    width: 230px;
+  }
+  .caption h3 {
+    /* essa fonte size precisa ser 1.4 se não seu nome fica quebrado */
+    font-size: 1.4vw;
+    margin: 1.5vw;
+  }
+  .caption p {
+    font-size: 1.3vw;
+  }
+  .social-links {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 2.5rem;
+    bottom: 2px;
+    margin-top: 30%;
+  }
+#linkedin, #github {
+    margin: -0.5vw;
+    height: 5vw;
+}
+#linkedin {
+  width: 5.5vw;
+}
+#github {
+  width: 5vw;
+}
+}

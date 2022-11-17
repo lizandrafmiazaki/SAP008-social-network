@@ -1,0 +1,15 @@
+.output-alert{
+  font-family: 'Life Savers', cursiva;
+  font-size: 5vw;
+  font-weight: 800;
+  color: #c9184a;
+  text-shadow: 0px 1px 2px #ffcad4;
+  margin: 1%
+}
+
+@media screen and (min-width: 750px){
+    .output-alert{
+        font-size: 1.2vw;
+        
+      } 
+}
