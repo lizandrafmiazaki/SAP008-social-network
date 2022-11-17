@@ -58,7 +58,7 @@
   width: 100%;
   justify-content: center;
   top: -25px;
-  font-size: 20px;
+  font-size: 4.5vw;
   color: #ff1bec;
   font-weight: bold;
 }
@@ -67,13 +67,15 @@
   justify-content: center;
   margin-top: 55%;
 }
+#linkedin, #github {
+    margin: 2vw;
+    height: 15vw;
+}
 #linkedin {
   width: 15.5vw;
-  height: 15vw;
 }
 #github {
   width: 15vw;
-  height: 15vw;
 }
 
 @media screen and (min-width: 750px) {
@@ -84,11 +86,16 @@
     margin: 2%;
   }
   .profile-card:hover {
-    height: 430px;
-    width: 270px;
+    height: 370px;
+    width: 230px;
   }
   .caption h3 {
-    font-size: 3;
+    /* essa fonte size precisa ser 1.4 se não seu nome fica quebrado */
+    font-size: 1.4vw;
+    margin: 1.5vw;
+  }
+  .caption p {
+    font-size: 1.3vw;
   }
   .social-links {
     display: flex;
@@ -98,12 +105,14 @@
     bottom: 2px;
     margin-top: 30%;
   }
-  #linkedin {
-    width: 5.5vw;
+#linkedin, #github {
+    margin: -0.5vw;
     height: 5vw;
-  }
-  #github {
-    width: 5vw;
-    height: 5vw;
-  }
+}
+#linkedin {
+  width: 5.5vw;
+}
+#github {
+  width: 5vw;
+}
 }

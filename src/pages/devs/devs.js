@@ -1,3 +1,5 @@
+import { logout } from '../../lib/firebase-auth.js';
+
 export default () => {
   const container = document.createElement('div');
 
@@ -57,20 +59,19 @@ export default () => {
           </a>
         </li>
         <li>
-          <a href="/#">
-          <img class="icon" id="icon-exit" src="./img/icon-exit.png" alt="icone de sair">
-          </a>
-        </li>
-        <li>
-          <a href="/#inform">
-            <img class="icon"id="icon-settings" src="./img/icon-settings.png" alt="icone de configurações">
-          </a>
-        </li>
+        <img class="icon" id="icon-exit" src="./img/icon-exit.png" alt="icone de sair">
+      </li>
       </ul>
     </nav>
   </footer>
 </section>
   `;
   container.innerHTML = template;
+  const btnLogout = container.querySelector('#icon-exit');
+  btnLogout.addEventListener('click', (e) => {
+    e.preventDefault();
+    logout();
+    window.location.hash = ' ';
+  });
   return container;
 };

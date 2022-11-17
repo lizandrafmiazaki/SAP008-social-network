@@ -16,8 +16,8 @@ export default () => {
   const printPost = async () => {
     const dataPost = await getPost();
     const postTemplate = dataPost.map((post) => `
-  <header>
-    <img class= "logo" id="logo-post" src="./img/logo.png" alt="logo">
+  <header class="header-post" id="header-post-map">
+    <img class= "logo" id="logo-post" src="./img/logo-sombra-suave.png" alt="logo">
     <div class="space"></div>
   </header>
     <section class="container-post">
@@ -46,13 +46,11 @@ export default () => {
     
     <img class="icon" id="to-top" src="./img/to-top.png" alt="ícone de voltar ao topo">
 
-    <footer class="footer-nav">
+    <footer class="footer-nav" id="footer-post">
         <nav>
           <ul>
             <li>
-              <a href="/#post">
                 <img class="icon" id="icon-home" src="./img/icon-homepage.png" alt="icone de homepage">
-              </a>
             </li>
             <li>
               <a href="/#add">
@@ -79,6 +77,7 @@ export default () => {
     const btnsLike = Array.from(container.querySelectorAll('#btnLike'));
     const btnTop = Array.from(container.querySelectorAll('#to-top'));
     const btnLogout = Array.from(container.querySelectorAll('#icon-exit'));
+    const homePage = Array.from(container.querySelector('#icon-home'));
 
     btnsEdit.forEach((btn) => {
       btn.addEventListener('click', (e) => {
@@ -152,6 +151,13 @@ export default () => {
     btnTop.forEach((btn) => {
       btn.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+
+    homePage.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.location.hash = '#post';
       });
     });
 
