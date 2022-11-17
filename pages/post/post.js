@@ -53,12 +53,12 @@ export default () => {
                 <img class="icon" id="icon-home" src="./img/icon-homepage.png" alt="icone de homepage">
             </li>
             <li>
-              <a href="#add">
+              <a href="/#add">
                 <img class="icon" id="icon-add" src="./img/icon-add-post.png" alt="icone de adicionar post">
               </a>
             </li>
             <li>
-              <a href="#devs">
+              <a href="/#devs">
                 <img class="icon" id="icon-info" src="./img/icon-info.png" alt="icone de informações">
               </a>
             </li>

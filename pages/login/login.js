@@ -25,7 +25,7 @@ export default () => {
           <hr>
           <button class="btn" id="btn-login-google">Login com Google</button>
           <hr>
-          <a href= "#signup"><button class="btn" id="btn-register">Clique aqui para se cadastrar</button></a>
+          <a href= "/#signup"><button class="btn" id="btn-register">Clique aqui para se cadastrar</button></a>
     </section>
     <footer>
       <p class="footer-devs">Desenvolvido por <a class="link-linkedin" href="https://www.linkedin.com/in/amandapolari/" target="_blank"
