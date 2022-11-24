@@ -166,7 +166,7 @@ export default () => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
         logout();
-        window.location.hash = ' ';
+        window.location.hash = '';
       });
     });
   };

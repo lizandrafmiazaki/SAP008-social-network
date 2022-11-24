@@ -71,7 +71,7 @@ export default () => {
   btnLogout.addEventListener('click', (e) => {
     e.preventDefault();
     logout();
-    window.location.hash = ' ';
+    window.location.hash = '';
   });
   return container;
 };
