@@ -9,7 +9,7 @@ export default () => {
     <img class= "logo" id= "img-logo-login" src="./img/logo.png" alt="logo">
     <h1>Bem-vinda ao Code Girls!</h1>
     <section class="container-user">
-      <h2 class="subtitle">Cadrastre-se</h2>
+      <h2 class="subtitle">Cadastre-se</h2>
       <form class="form-signup">
         <label for="insert-name" class="label-for-input" id="label-name">Nome:*</label>
         <input class="input-area" id="insert-name" placeholder="Insira seu nome"/>
